@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="VyxWorks — Independent software studio building productivity apps.">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <title>VyxWorks — Productivity tools, crafted with care.</title>
+  <style>
+    /* ─────────────────────────────────────
+       Reset & Base
+       ───────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe UI", Roboto, sans-serif;
+      color: #0A0A0A;
+      background: #FFFFFF;
+      line-height: 1.5;
+      font-size: 16px;
+    }
+
+    a { color: inherit; text-decoration: none; }
+    img, svg { display: block; max-width: 100%; }
+
+    .container {
+      max-width: 880px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* ─────────────────────────────────────
+       Sticky Nav
+       ───────────────────────────────────── */
+    .nav {
+      position: sticky;
+      top: 0;
+      background: rgba(255, 255, 255, 0.85);
+      backdrop-filter: saturate(180%) blur(20px);
+      -webkit-backdrop-filter: saturate(180%) blur(20px);
+      border-bottom: 1px solid #EFEFEF;
+      z-index: 100;
+    }
+
+    .nav-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      height: 56px;
+    }
+
+    .nav-brand {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-weight: 600;
+      letter-spacing: -0.01em;
+    }
+
+    .nav-brand svg { width: 24px; height: 24px; }
+
+    .nav-links {
+      display: flex;
+      gap: 28px;
+      font-size: 14px;
+      color: #555;
+    }
+
+    .nav-links a:hover { color: #0A0A0A; }
+
+    /* ─────────────────────────────────────
+       Hero
+       ───────────────────────────────────── */
+    .hero {
+      padding: 96px 0 80px;
+      text-align: center;
+    }
+
+    .hero-logo {
+      width: 56px;
+      height: 56px;
+      margin: 0 auto 32px;
+    }
+
+    .hero h1 {
+      font-size: clamp(36px, 6vw, 56px);
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      line-height: 1.1;
+      margin-bottom: 20px;
+      color: #0A0A0A;
+    }
+
+    .hero-sub {
+      font-size: clamp(16px, 2vw, 19px);
+      color: #555;
+      max-width: 540px;
+      margin: 0 auto 36px;
+      line-height: 1.5;
+    }
+
+    .btn-primary {
+      display: inline-block;
+      background: #0A0A0A;
+      color: #FFFFFF;
+      padding: 14px 28px;
+      border-radius: 999px;
+      font-size: 15px;
+      font-weight: 600;
+      transition: transform 0.15s ease, background 0.15s ease;
+    }
+
+    .btn-primary:hover {
+      background: #1A1A1A;
+      transform: translateY(-1px);
+    }
+
+    /* ─────────────────────────────────────
+       Section base
+       ───────────────────────────────────── */
+    .section {
+      padding: 80px 0;
+      border-top: 1px solid #EFEFEF;
+    }
+
+    .section-label {
+      font-size: 12px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: #888;
+      margin-bottom: 16px;
+    }
+
+    .section-title {
+      font-size: clamp(28px, 4vw, 36px);
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      margin-bottom: 12px;
+      color: #0A0A0A;
+    }
+
+    .section-lead {
+      font-size: 17px;
+      color: #555;
+      max-width: 600px;
+      line-height: 1.6;
+      margin-bottom: 40px;
+    }
+
+    /* ─────────────────────────────────────
+       Products
+       ───────────────────────────────────── */
+    .products-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+    }
+
+    .product-card {
+      background: #F7F7F8;
+      border: 1px solid #EFEFEF;
+      border-radius: 16px;
+      padding: 32px;
+      transition: background 0.15s ease, border-color 0.15s ease;
+    }
+
+    .product-card:hover {
+      background: #F2F2F4;
+      border-color: #E0E0E2;
+    }
+
+    .product-icon {
+      font-size: 32px;
+      margin-bottom: 20px;
+      line-height: 1;
+    }
+
+    .product-name {
+      font-size: 20px;
+      font-weight: 600;
+      margin-bottom: 8px;
+      color: #0A0A0A;
+    }
+
+    .product-desc {
+      font-size: 15px;
+      color: #555;
+      margin-bottom: 16px;
+      line-height: 1.5;
+    }
+
+    .product-status {
+      display: inline-block;
+      font-size: 12px;
+      font-weight: 600;
+      color: #888;
+      background: #FFFFFF;
+      border: 1px solid #E5E5E5;
+      padding: 4px 10px;
+      border-radius: 999px;
+    }
+
+    /* ─────────────────────────────────────
+       Contact
+       ───────────────────────────────────── */
+    .contact-email {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-size: clamp(20px, 3vw, 28px);
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      color: #0A0A0A;
+      border-bottom: 2px solid #0A0A0A;
+      padding-bottom: 4px;
+      transition: opacity 0.15s ease;
+    }
+
+    .contact-email:hover { opacity: 0.6; }
+
+    /* ─────────────────────────────────────
+       Footer (legal info — Apple 심사 핵심)
+       ───────────────────────────────────── */
+    .footer {
+      background: #0A0A0A;
+      color: #B0B0B0;
+      padding: 56px 0 40px;
+      font-size: 14px;
+      line-height: 1.6;
+    }
+
+    .footer-brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: #FFFFFF;
+      font-size: 18px;
+      font-weight: 600;
+      letter-spacing: -0.01em;
+      margin-bottom: 28px;
+    }
+
+    .footer-brand svg { width: 28px; height: 28px; }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      margin-bottom: 40px;
+    }
+
+    .footer-block-label {
+      font-size: 11px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: #888;
+      margin-bottom: 10px;
+    }
+
+    .footer-value {
+      color: #E5E5E5;
+    }
+
+    .footer-value-en {
+      color: #888;
+      font-size: 13px;
+      margin-top: 4px;
+    }
+
+    .footer-bottom {
+      padding-top: 28px;
+      border-top: 1px solid #1F1F1F;
+      font-size: 13px;
+      color: #888;
+    }
+
+    /* ─────────────────────────────────────
+       Responsive (Mobile <= 640px)
+       ───────────────────────────────────── */
+    @media (max-width: 640px) {
+      .container { padding: 0 20px; }
+
+      .nav-inner { height: 52px; }
+      .nav-links { gap: 18px; font-size: 13px; }
+
+      .hero { padding: 64px 0 56px; }
+      .hero-logo { width: 48px; height: 48px; margin-bottom: 24px; }
+
+      .section { padding: 56px 0; }
+
+      .products-grid {
+        grid-template-columns: 1fr;
+        gap: 14px;
+      }
+
+      .product-card { padding: 24px; }
+
+      .footer { padding: 40px 0 32px; }
+      .footer-grid {
+        grid-template-columns: 1fr;
+        gap: 24px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="nav">
+    <div class="container nav-inner">
+      <a href="#top" class="nav-brand">
+        <svg viewBox="0 0 32 32"><rect width="32" height="32" rx="6" fill="#0A0A0A"/><path d="M9 9 L16 23 L23 9" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>
+        VyxWorks
+      </a>
+      <div class="nav-links">
+        <a href="#products">Products</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </div>
+  </nav>
+
+  <main id="top">
+    <section class="hero">
+      <div class="container">
+        <svg class="hero-logo" viewBox="0 0 32 32"><rect width="32" height="32" rx="6" fill="#0A0A0A"/><path d="M9 9 L16 23 L23 9" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>
+        <h1>Productivity tools,<br>crafted with care.</h1>
+        <p class="hero-sub">We build apps that quietly improve daily life.</p>
+        <a href="#products" class="btn-primary">See our apps →</a>
+      </div>
+    </section>
+
+    <section id="products" class="section">
+      <div class="container">
+        <div class="section-label">Products</div>
+        <h2 class="section-title">Apps we're building.</h2>
+        <p class="section-lead">Calm, dependable tools that respect your time and attention.</p>
+        <div class="products-grid">
+          <div class="product-card">
+            <div class="product-icon">📔</div>
+            <div class="product-name">Diary</div>
+            <p class="product-desc">A calm space for daily reflection.</p>
+            <span class="product-status">Coming Soon</span>
+          </div>
+          <div class="product-card">
+            <div class="product-icon">🅿️</div>
+            <div class="product-name">Parking</div>
+            <p class="product-desc">Find and remember where you parked.</p>
+            <span class="product-status">Coming Soon</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="about" class="section">
+      <div class="container">
+        <div class="section-label">About</div>
+        <h2 class="section-title">A small studio with a clear focus.</h2>
+        <p class="section-lead">VyxWorks is an independent software studio based in South Korea, building productivity apps that quietly improve daily life. Our work focuses on calm, dependable tools that respect your time and attention.</p>
+      </div>
+    </section>
+
+    <section id="contact" class="section">
+      <div class="container">
+        <div class="section-label">Contact</div>
+        <h2 class="section-title">Get in touch.</h2>
+        <p class="section-lead">For partnerships, support, or just to say hello.</p>
+        <a href="mailto:vyxworks26@gmail.com" class="contact-email">
+          vyxworks26@gmail.com →
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-brand">
+        <svg viewBox="0 0 32 32"><rect width="32" height="32" rx="6" fill="#FFFFFF"/><path d="M9 9 L16 23 L23 9" stroke="#0A0A0A" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>
+        VyxWorks <span style="color:#888; font-weight:400;">(빅스웍스)</span>
+      </div>
+
+      <div class="footer-grid">
+        <div>
+          <div class="footer-block-label">Business Registration No. / 사업자등록번호</div>
+          <div class="footer-value">422-57-01052</div>
+        </div>
+        <div>
+          <div class="footer-block-label">Email</div>
+          <div class="footer-value"><a href="mailto:vyxworks26@gmail.com" style="color:#E5E5E5; text-decoration:underline;">vyxworks26@gmail.com</a></div>
+        </div>
+        <div style="grid-column: 1 / -1;">
+          <div class="footer-block-label">Business Address / 사업장 소재지</div>
+          <div class="footer-value">경기도 용인시 수지구 광교중앙로296번길 14, 917호 (상현동, 광교푸르지오시티3단지)</div>
+          <div class="footer-value-en">917ho, 14 Gwanggyojungang-ro 296beon-gil, Suji-gu, Yongin-si, Gyeonggi-do, Republic of Korea</div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        © 2026 VyxWorks. All rights reserved.
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
