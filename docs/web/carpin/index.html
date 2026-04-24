@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="CarPin — 주차 위치, 이제 잊지 마세요. iPhone · Apple Watch.">
+  <meta property="og:title" content="CarPin — 주차 위치, 이제 잊지 마세요">
+  <meta property="og:description" content="GPS로 주차 위치를 저장하고 Apple Watch에서 한 번에 확인하세요. 모든 데이터는 기기에만 저장됩니다.">
+  <meta property="og:url" content="https://vyxworks.com/carpin/">
+  <meta property="og:site_name" content="vyxworks">
+  <link rel="canonical" href="https://vyxworks.com/carpin/">
+  <link rel="icon" href="/assets/img/carpin-logo.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/assets/css/base.css">
+  <title>CarPin — 주차 위치, 이제 잊지 마세요 | vyxworks</title>
+  <style>
+    .hero {
+      padding: 72px 0 56px;
+      text-align: center;
+    }
+    .hero-logo { width: 72px; height: 72px; margin: 0 auto 28px; }
+    .hero h1 {
+      font-size: clamp(32px, 5vw, 44px);
+      font-weight: 700;
+      letter-spacing: -0.025em;
+      line-height: 1.15;
+      margin-bottom: 16px;
+    }
+    .hero p {
+      font-size: 18px;
+      color: var(--color-muted);
+      max-width: 520px;
+      margin: 0 auto 32px;
+    }
+    .hero-actions {
+      display: inline-flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    .store-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 12px 18px;
+      border: 1px solid var(--color-border);
+      border-radius: 10px;
+      color: var(--color-fg);
+      font-size: 14px;
+      border-bottom: 1px solid var(--color-border);
+    }
+    .store-badge small { color: var(--color-muted); font-size: 11px; display: block; }
+    .features {
+      padding: 48px 0 32px;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+    .feature {
+      padding: 24px;
+      border: 1px solid var(--color-border);
+      border-radius: 14px;
+      background: var(--color-surface);
+    }
+    .feature-icon { font-size: 28px; margin-bottom: 12px; }
+    .feature h3 { font-size: 16px; font-weight: 600; margin-bottom: 6px; }
+    .feature p { font-size: 14px; color: var(--color-muted); }
+    .cta-links {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+      padding: 48px 0 24px;
+      font-size: 14px;
+    }
+    @media (max-width: 640px) {
+      .features { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <!-- header: see /_partials/header.html -->
+  <nav class="site-nav" aria-label="Site">
+    <div class="site-nav-inner">
+      <a class="site-nav-brand" href="https://vyxworks.com/">
+        <svg viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="6" fill="currentColor"/><path d="M9 9 L16 23 L23 9" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>
+        vyxworks
+      </a>
+      <div class="site-nav-links">
+        <a href="https://vyxworks.com/">Home</a>
+        <a href="https://vyxworks.com/#products">Products</a>
+        <a href="mailto:support@carpin.app">Support</a>
+      </div>
+    </div>
+  </nav>
+
+  <main class="container">
+    <section class="hero">
+      <img class="hero-logo" src="/assets/img/carpin-logo.svg" alt="CarPin">
+      <h1>주차 위치, 이제 잊지 마세요.</h1>
+      <p>GPS로 주차한 곳을 저장하고 Apple Watch에서 한 번에 찾아가세요. 모든 데이터는 당신의 기기에만 남습니다.</p>
+      <div class="hero-actions">
+        <!-- TODO_REPLACE_APP_STORE_URL: 앱 배포 후 실제 링크로 교체 -->
+        <a class="store-badge" href="#" aria-label="Download on the App Store">
+          <span aria-hidden="true">🍎</span>
+          <span>Download on the<br><strong>App Store</strong><small>TODO_REPLACE_APP_STORE_URL</small></span>
+        </a>
+      </div>
+    </section>
+
+    <section class="features">
+      <div class="feature">
+        <div class="feature-icon" aria-hidden="true">📍</div>
+        <h3>GPS 주차 저장</h3>
+        <p>버튼 한 번이면 지금 위치를 정확히 기록합니다.</p>
+      </div>
+      <div class="feature">
+        <div class="feature-icon" aria-hidden="true">⭐</div>
+        <h3>즐겨찾기 장소</h3>
+        <p>자주 가는 주차장을 저장하고 지오펜스로 자동 알림.</p>
+      </div>
+      <div class="feature">
+        <div class="feature-icon" aria-hidden="true">⌚</div>
+        <h3>Apple Watch 연동</h3>
+        <p>iPhone 없이도 손목에서 바로 위치 확인.</p>
+      </div>
+    </section>
+
+    <nav class="cta-links" aria-label="Legal and support">
+      <a href="/carpin/privacy/">개인정보처리방침</a>
+      <a href="/carpin/terms/">이용약관</a>
+      <a href="mailto:support@carpin.app">문의하기</a>
+    </nav>
+  </main>
+
+  <!-- footer: see /_partials/footer.html -->
+  <footer class="site-footer">
+    <div class="site-footer-inner">
+      <nav class="site-footer-links" aria-label="Legal">
+        <a href="/carpin/privacy/ko.html">Privacy</a>
+        <a href="/carpin/terms/ko.html">Terms</a>
+        <a href="mailto:support@carpin.app">Support</a>
+        <a href="mailto:vyxworks26@gmail.com">Contact</a>
+      </nav>
+      <div class="site-footer-meta">
+        © 2026 vyxworks. All rights reserved.<br>
+        Business Registration No. 422-57-01052 · 경기도 용인시 수지구 광교중앙로296번길 14, 917호
+      </div>
+      <div class="site-footer-meta-en">
+        917ho, 14 Gwanggyojungang-ro 296beon-gil, Suji-gu, Yongin-si, Gyeonggi-do, Republic of Korea
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
