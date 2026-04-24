@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="CarPin 개인정보처리방침 — 주차 위치·사진은 기기에만 저장되며 서버로 전송되지 않습니다.">
+  <meta property="og:title" content="CarPin 개인정보처리방침">
+  <meta property="og:description" content="CarPin이 처리하는 개인정보와 사용자의 권리를 안내합니다.">
+  <meta property="og:url" content="https://vyxworks.com/carpin/privacy/ko.html">
+  <meta property="og:site_name" content="vyxworks">
+  <link rel="alternate" hreflang="ko" href="https://vyxworks.com/carpin/privacy/ko.html">
+  <link rel="alternate" hreflang="en" href="https://vyxworks.com/carpin/privacy/en.html">
+  <link rel="alternate" hreflang="ja" href="https://vyxworks.com/carpin/privacy/ja.html">
+  <link rel="alternate" hreflang="zh-Hans" href="https://vyxworks.com/carpin/privacy/zh-Hans.html">
+  <link rel="alternate" hreflang="x-default" href="https://vyxworks.com/carpin/privacy/ko.html">
+  <link rel="canonical" href="https://vyxworks.com/carpin/privacy/ko.html">
+  <link rel="icon" href="/assets/img/carpin-logo.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/assets/css/base.css">
+  <link rel="stylesheet" href="/assets/css/legal.css">
+  <title>CarPin 개인정보처리방침 | vyxworks</title>
+</head>
+<body>
+  <!-- header: see /_partials/header.html -->
+  <nav class="site-nav" aria-label="Site">
+    <div class="site-nav-inner">
+      <a class="site-nav-brand" href="https://vyxworks.com/">
+        <svg viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="6" fill="currentColor"/><path d="M9 9 L16 23 L23 9" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>
+        vyxworks
+      </a>
+      <div class="site-nav-links">
+        <a href="https://vyxworks.com/">Home</a>
+        <a href="/carpin/">CarPin</a>
+        <a href="mailto:support@carpin.app">Support</a>
+      </div>
+    </div>
+  </nav>
+
+  <main class="container legal-page">
+    <nav class="legal-lang-switcher" aria-label="Language">
+      <a href="ko.html" aria-current="page" lang="ko">한국어</a>
+      <a href="en.html" lang="en">English</a>
+      <a href="ja.html" lang="ja">日本語</a>
+      <a href="zh-Hans.html" lang="zh-Hans">简体中文</a>
+    </nav>
+
+    <header class="legal-header">
+      <h1>CarPin 개인정보처리방침</h1>
+      <p class="legal-meta">
+        최종 개정일: 2026-04-24 · 시행일: 2026-04-24<br>
+        운영자: vyxworks · 서비스: CarPin (iOS · watchOS)
+      </p>
+    </header>
+
+    <nav class="legal-toc" aria-label="목차">
+      <div class="legal-toc-title">목차</div>
+      <ol>
+        <li><a href="#s1">처리하는 개인정보 항목</a></li>
+        <li><a href="#s2">처리 목적</a></li>
+        <li><a href="#s3">보관 및 파기</a></li>
+        <li><a href="#s4">제3자 제공 및 처리 위탁</a></li>
+        <li><a href="#s5">정보주체의 권리</a></li>
+        <li><a href="#s6">추적 기술 (ATT · IDFA)</a></li>
+        <li><a href="#s7">아동 개인정보 보호</a></li>
+        <li><a href="#s8">국외 이전</a></li>
+        <li><a href="#s9">EU 사용자 (GDPR)</a></li>
+        <li><a href="#s10">캘리포니아 거주자 (CCPA)</a></li>
+        <li><a href="#s11">한국 개인정보보호법</a></li>
+        <li><a href="#s12">보안 조치</a></li>
+        <li><a href="#s13">시행일 및 개정 이력</a></li>
+        <li><a href="#s14">문의처</a></li>
+      </ol>
+    </nav>
+
+    <article class="legal-body">
+      <p>vyxworks(이하 "회사")는 CarPin 앱(이하 "서비스") 사용자의 개인정보를 소중히 다룹니다. 본 방침은 회사가 처리하는 개인정보의 항목·목적·보관 기간과 사용자 권리를 안내합니다.</p>
+
+      <div class="legal-callout">
+        <strong>요약.</strong> CarPin은 계정·회원가입이 없으며, 주차 위치와 사진은 기기에만 저장되고 서버로 전송되지 않습니다. 광고 표시를 위해 Google Mobile Ads SDK가 광고 식별자(IDFA)를 처리할 수 있습니다.
+      </div>
+
+      <h2 id="s1">1. 처리하는 개인정보 항목</h2>
+      <p>회사는 서비스 제공에 필요한 최소한의 정보만 처리합니다.</p>
+      <table>
+        <thead>
+          <tr><th>구분</th><th>항목</th><th>수집 방법</th><th>저장 위치</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>1.1 위치 정보</td>
+            <td>정밀 위치(Precise Location) — 주차 좌표, 즐겨찾기 장소 좌표</td>
+            <td>사용자의 저장 동작, 지오펜스 이벤트</td>
+            <td>기기 로컬 (SwiftData)</td>
+          </tr>
+          <tr>
+            <td>1.2 사진·카메라</td>
+            <td>사용자가 촬영하거나 선택한 주차 관련 사진</td>
+            <td>사용자의 직접 입력</td>
+            <td>기기 로컬</td>
+          </tr>
+          <tr>
+            <td>1.3 광고 식별자</td>
+            <td>IDFA (Identifier for Advertisers)</td>
+            <td>iOS 시스템 API, Google Mobile Ads SDK</td>
+            <td>Google 서버 (SDK 제공자)</td>
+          </tr>
+          <tr>
+            <td>1.4 결제 정보</td>
+            <td>Apple 거래 ID(영수증) — 구매 복원 용도</td>
+            <td>Apple StoreKit 2</td>
+            <td>Apple 서버 (앱은 카드·계좌 정보에 접근할 수 없습니다)</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3>1.5 수집하지 않는 정보</h3>
+      <p>회사는 다음 정보를 <strong>수집하거나 전송하지 않습니다</strong>.</p>
+      <ul>
+        <li>이름, 이메일, 전화번호 등 계정 정보 (회원가입 없음)</li>
+        <li>연락처, 주소록, 통화 기록</li>
+        <li>건강·피트니스·생체 정보</li>
+        <li>백그라운드 지속 위치 추적 (지오펜스 진입·이탈 이벤트만 처리)</li>
+        <li>웹사이트·앱 사용 분석 데이터 (Firebase Analytics 등 분석 SDK 미사용)</li>
+      </ul>
+
+      <h2 id="s2">2. 처리 목적</h2>
+      <ol>
+        <li><strong>주차 위치 저장 및 표시</strong> — 위치 정보와 사진을 기기에 저장하여 이후 찾아갈 수 있도록 제공합니다.</li>
+        <li><strong>즐겨찾기 장소 알림</strong> — 사용자가 등록한 장소 주변에 진입·이탈 시 지오펜스 알림을 제공합니다.</li>
+        <li><strong>광고 표시</strong> — 무료 기능 유지를 위한 광고 노출 및 성과 측정(Google Mobile Ads SDK).</li>
+        <li><strong>인앱 구매</strong> — 테마·아이콘 일회성 구매의 복원 및 정산(Apple StoreKit 2).</li>
+      </ol>
+
+      <h2 id="s3">3. 보관 및 파기</h2>
+      <h3>3.1 로컬 데이터</h3>
+      <ul>
+        <li>주차 위치·즐겨찾기·사진은 사용자가 앱 내에서 삭제하거나 앱을 제거할 때까지 기기에 남습니다.</li>
+        <li>사진 자동 파기: 앱 설정에서 <strong>1일 · 7일 · 30일 · 무제한</strong> 중 선택 가능.</li>
+        <li>앱 제거 시 모든 로컬 데이터가 즉시 삭제됩니다.</li>
+      </ul>
+      <h3>3.2 외부 서비스 데이터</h3>
+      <ul>
+        <li>Google Mobile Ads SDK가 처리하는 광고 식별자 및 관련 데이터의 보관 기간은 Google의 정책에 따릅니다.</li>
+        <li>Apple 영수증 데이터는 Apple의 정책에 따라 보관됩니다.</li>
+      </ul>
+
+      <h2 id="s4">4. 제3자 제공 및 처리 위탁</h2>
+      <p>회사는 사용자의 개인정보를 제3자에게 판매하지 않습니다. 서비스 운영에 필수적인 처리 위탁은 다음과 같습니다.</p>
+      <table>
+        <thead>
+          <tr><th>수탁자</th><th>위탁 업무</th><th>처리 데이터</th><th>관련 정책</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Google LLC</td>
+            <td>광고 송출 및 성과 측정 (Google Mobile Ads SDK)</td>
+            <td>IDFA, 기기·광고 이벤트 관련 정보</td>
+            <td><a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google 개인정보처리방침</a></td>
+          </tr>
+          <tr>
+            <td>Google LLC</td>
+            <td>GDPR/UMP 동의 관리 (User Messaging Platform)</td>
+            <td>동의 상태 기록</td>
+            <td><a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google 개인정보처리방침</a></td>
+          </tr>
+          <tr>
+            <td>Apple Inc.</td>
+            <td>인앱 결제(StoreKit 2), 앱 배포</td>
+            <td>거래 영수증</td>
+            <td><a href="https://www.apple.com/legal/privacy/" target="_blank" rel="noopener">Apple 개인정보 정책</a></td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h2 id="s5">5. 정보주체의 권리</h2>
+      <p>사용자는 언제든지 다음 권리를 행사할 수 있습니다.</p>
+      <ul>
+        <li><strong>열람·정정·삭제</strong> — 앱 내에서 항목을 직접 수정하거나 삭제할 수 있습니다.</li>
+        <li><strong>권한 회수</strong> — iOS 설정 &gt; 개인정보보호 및 보안에서 위치·사진·카메라 권한을 회수하면 해당 기능이 중지됩니다.</li>
+        <li><strong>앱 제거</strong> — 앱을 삭제하면 모든 로컬 데이터가 함께 제거됩니다.</li>
+        <li><strong>광고 식별자 재설정</strong> — iOS 설정 &gt; 개인정보보호 및 보안 &gt; 추적에서 앱별 추적을 비활성화할 수 있습니다.</li>
+      </ul>
+      <p>추가 문의는 <a href="mailto:support@carpin.app">support@carpin.app</a>으로 연락해 주세요.</p>
+
+      <h2 id="s6">6. 추적 기술 (ATT · IDFA)</h2>
+      <p>CarPin은 쿠키를 사용하지 않습니다. 단, iOS의 App Tracking Transparency(ATT) 정책에 따라 최초 실행 시 추적 허용 여부를 묻는 시스템 다이얼로그가 표시됩니다.</p>
+      <ul>
+        <li><strong>허용</strong> — IDFA를 Google Mobile Ads SDK가 맞춤형 광고 및 성과 측정에 사용합니다.</li>
+        <li><strong>거부</strong> — IDFA가 전달되지 않으며, 비개인화 광고만 표시됩니다.</li>
+      </ul>
+      <p>EU·EEA·UK 사용자는 최초 실행 시 Google UMP(User Messaging Platform)의 동의 폼이 별도로 표시됩니다.</p>
+      <p>IDFA 전체 수집 거부: <code>iOS 설정 &gt; 개인정보보호 및 보안 &gt; 추적 &gt; "앱이 추적하도록 허용" 비활성화</code>.</p>
+
+      <h2 id="s7">7. 아동 개인정보 보호</h2>
+      <p>CarPin은 <strong>만 13세 미만(미국 COPPA 기준)</strong>을 대상으로 하지 않습니다. 회사는 해당 연령대의 개인정보를 의도적으로 수집하지 않으며, 수집 사실이 확인되면 지체 없이 삭제합니다. 해당 국가의 법정 연령이 더 높은 경우 그 연령을 기준으로 합니다.</p>
+
+      <h2 id="s8">8. 국외 이전</h2>
+      <p>Google Mobile Ads SDK가 처리하는 광고 식별자 및 관련 데이터는 Google이 운영하는 미국 등 해외 데이터센터로 이전·저장될 수 있습니다. Apple 영수증 데이터 역시 Apple의 해외 서버에서 처리됩니다. 이전 근거는 Google·Apple의 표준 계약 조항(SCC) 및 해당 정책을 따릅니다.</p>
+
+      <h2 id="s9">9. EU 사용자 (GDPR)</h2>
+      <p>EU/EEA 사용자에게는 다음이 적용됩니다.</p>
+      <ul>
+        <li><strong>법적 근거</strong> — 서비스 이행(Article 6(1)(b)) 및 동의(6(1)(a), 광고 추적 한정).</li>
+        <li><strong>사용자 권리</strong> — 열람·정정·삭제·이전·처리 제한·반대권, 동의 철회권.</li>
+        <li><strong>동의 관리</strong> — Google UMP 폼에서 언제든 변경할 수 있으며, iOS 설정에서 ATT 허용을 철회할 수 있습니다.</li>
+        <li><strong>데이터 이전</strong> — 8항 참조.</li>
+        <li><strong>관련 감독기관 제소 권리</strong> — 소속 회원국 감독기관에 불만을 제기할 권리가 있습니다.</li>
+        <li><strong>문의</strong> — <a href="mailto:support@carpin.app">support@carpin.app</a></li>
+      </ul>
+
+      <h2 id="s10">10. 캘리포니아 거주자 (CCPA/CPRA)</h2>
+      <ul>
+        <li>회사는 캘리포니아 거주자의 개인정보를 금전적 대가로 <strong>판매하지 않습니다</strong>.</li>
+        <li>광고용 IDFA의 "공유(sharing)"는 ATT 거부 또는 iOS 추적 설정으로 거절할 수 있습니다.</li>
+        <li>열람·삭제·정정 요청: <a href="mailto:support@carpin.app">support@carpin.app</a>.</li>
+        <li>요청 시 차별적 대우를 받지 않습니다.</li>
+      </ul>
+
+      <h2 id="s11">11. 한국 개인정보보호법</h2>
+      <p>대한민국 개인정보보호법에 따라 다음을 고지합니다.</p>
+      <h3>11.1 개인정보보호책임자</h3>
+      <ul>
+        <li>책임자: vyxworks 대표</li>
+        <li>연락처: <a href="mailto:support@carpin.app">support@carpin.app</a> / <a href="mailto:vyxworks26@gmail.com">vyxworks26@gmail.com</a></li>
+      </ul>
+      <h3>11.2 정보주체의 권리와 의무 및 행사 방법</h3>
+      <p>정보주체는 회사에 대해 언제든지 개인정보 열람·정정·삭제·처리정지 요구를 할 수 있으며, 법정대리인을 통해서도 요구할 수 있습니다.</p>
+      <h3>11.3 권익침해 구제 방법</h3>
+      <ul>
+        <li>개인정보분쟁조정위원회 (kopico.go.kr · 1833-6972)</li>
+        <li>개인정보침해신고센터 (privacy.kisa.or.kr · 118)</li>
+        <li>대검찰청 사이버수사과 (spo.go.kr · 1301)</li>
+        <li>경찰청 사이버수사국 (cyberbureau.police.go.kr · 182)</li>
+      </ul>
+
+      <h2 id="s12">12. 보안 조치</h2>
+      <ul>
+        <li><strong>앱 샌드박스</strong> — iOS 앱 샌드박스 내에서만 데이터가 저장되며 다른 앱에서 접근할 수 없습니다.</li>
+        <li><strong>기기 암호화</strong> — iOS의 파일 시스템 암호화(Data Protection) 기본값을 따릅니다.</li>
+        <li><strong>네트워크 전송 없음</strong> — 주차 위치·사진은 외부 서버로 전송되지 않습니다.</li>
+        <li><strong>최소 권한 원칙</strong> — 필요한 시점에만 권한을 요청합니다.</li>
+      </ul>
+
+      <h2 id="s13">13. 시행일 및 개정 이력</h2>
+      <table>
+        <thead>
+          <tr><th>버전</th><th>시행일</th><th>주요 변경</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>1.0</td><td>2026-04-24</td><td>최초 제정</td></tr>
+        </tbody>
+      </table>
+      <p>회사는 방침을 개정할 경우 시행일 최소 7일 전에 앱 내 공지 또는 본 페이지 업데이트를 통해 고지합니다. 이용자 권리에 중대한 영향을 미치는 변경은 최소 30일 전에 고지합니다.</p>
+
+      <h2 id="s14">14. 문의처</h2>
+      <dl class="legal-contact">
+        <dt>운영자</dt><dd>vyxworks</dd>
+        <dt>사업자등록번호</dt><dd>422-57-01052</dd>
+        <dt>소재지</dt><dd>경기도 용인시 수지구 광교중앙로296번길 14, 917호 (상현동, 광교푸르지오시티3단지)</dd>
+        <dt>앱 지원</dt><dd><a href="mailto:support@carpin.app">support@carpin.app</a></dd>
+        <dt>일반 문의</dt><dd><a href="mailto:vyxworks26@gmail.com">vyxworks26@gmail.com</a></dd>
+        <dt>대표 사이트</dt><dd><a href="https://vyxworks.com/">https://vyxworks.com</a></dd>
+      </dl>
+    </article>
+  </main>
+
+  <!-- footer: see /_partials/footer.html -->
+  <footer class="site-footer">
+    <div class="site-footer-inner">
+      <nav class="site-footer-links" aria-label="Legal">
+        <a href="/carpin/privacy/ko.html">Privacy</a>
+        <a href="/carpin/terms/ko.html">Terms</a>
+        <a href="mailto:support@carpin.app">Support</a>
+        <a href="mailto:vyxworks26@gmail.com">Contact</a>
+      </nav>
+      <div class="site-footer-meta">
+        © 2026 vyxworks. All rights reserved.<br>
+        Business Registration No. 422-57-01052 · 경기도 용인시 수지구 광교중앙로296번길 14, 917호
+      </div>
+      <div class="site-footer-meta-en">
+        917ho, 14 Gwanggyojungang-ro 296beon-gil, Suji-gu, Yongin-si, Gyeonggi-do, Republic of Korea
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
