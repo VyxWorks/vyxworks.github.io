@@ -11,6 +11,10 @@
   :root {
     --color-accent: #F5F6F7;
     --color-accent-fg: #0A0A0A;
+    /* base.css 의 네이비 틴트 다크 → 순수 뉴트럴(앱 아이콘 톤)로 교체 */
+    --color-bg: #0C0C0D;
+    --color-surface: #161618;
+    --color-border: #232326;
   }
 }
 
