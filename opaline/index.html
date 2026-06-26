@@ -17,30 +17,25 @@
        링크·버튼 등 base.css 가 참조하는 단색 액센트는 오팔 퍼플-블루 대표값으로 덮고,
        히어로/배지에는 무지갯빛 그라데이션을 별도로 입힌다. */
     :root {
-      --color-accent: #7C6CF5;
+      --color-accent: #0A0A0A;
       --color-accent-fg: #FFFFFF;
-      --opal: linear-gradient(125deg, #3AD6C8 0%, #5B9DF9 36%, #A78BFA 66%, #F472B6 100%);
+      --badge-bg: #0A0A0A;
+      --badge-fg: #FFFFFF;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --color-accent: #F5F6F7;
+        --color-accent-fg: #0A0A0A;
+        --badge-bg: #F5F6F7;
+        --badge-fg: #0A0A0A;
+      }
     }
 
     .hero {
-      position: relative;
       padding: 80px 0 60px;
       text-align: center;
-      overflow: hidden;
     }
-    /* 은은한 오팔 후광 */
-    .hero::before {
-      content: "";
-      position: absolute;
-      top: -120px; left: 50%;
-      width: 560px; height: 360px;
-      transform: translateX(-50%);
-      background: radial-gradient(closest-side, rgba(124,108,245,0.18), transparent 70%);
-      pointer-events: none;
-      z-index: 0;
-    }
-    .hero > .container { position: relative; z-index: 1; }
-    .hero-logo { width: 80px; height: 80px; margin: 0 auto 28px; filter: drop-shadow(0 6px 20px rgba(124,108,245,0.28)); }
+    .hero-logo { width: 80px; height: 80px; margin: 0 auto 28px; }
     .hero h1 {
       font-size: clamp(32px, 5.4vw, 46px);
       font-weight: 800;
@@ -48,13 +43,7 @@
       line-height: 1.14;
       margin-bottom: 16px;
     }
-    .hero h1 .grad {
-      background: var(--opal);
-      -webkit-background-clip: text;
-      background-clip: text;
-      -webkit-text-fill-color: transparent;
-      color: transparent;
-    }
+    .hero h1 .grad { color: var(--color-muted); }
     .hero p {
       font-size: 18px;
       color: var(--color-muted);
@@ -68,15 +57,14 @@
       gap: 10px;
       padding: 13px 22px;
       border-radius: 12px;
-      background: var(--opal);
-      color: #fff;
+      background: var(--badge-bg);
+      color: var(--badge-fg);
       font-size: 15px;
       font-weight: 600;
       border-bottom: none;
-      box-shadow: 0 6px 18px rgba(124,108,245,0.30);
-      transition: transform 0.15s ease, box-shadow 0.15s ease;
+      transition: transform 0.15s ease, opacity 0.15s ease;
     }
-    .store-badge:hover { transform: translateY(-1px); box-shadow: 0 8px 22px rgba(124,108,245,0.38); border-bottom: none; }
+    .store-badge:hover { transform: translateY(-1px); opacity: 0.9; border-bottom: none; }
     .store-badge small { display: block; font-size: 11px; font-weight: 500; opacity: 0.85; }
 
     .features {

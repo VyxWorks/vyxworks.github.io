@@ -1,0 +1,22 @@
+/* Opaline — monochrome accent override.
+   Loaded AFTER base.css + legal.css on Opaline legal pages.
+   base.css ships CarPin's green accent (#04C98A); Opaline's brand is the
+   monochrome app-icon, so we neutralize the accent and flip it light/dark.
+   Links stay legible via underline (same hue as body text). */
+:root {
+  --color-accent: #0A0A0A;
+  --color-accent-fg: #FFFFFF;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-accent: #F5F6F7;
+    --color-accent-fg: #0A0A0A;
+  }
+}
+
+.legal-body a,
+.legal-contact a,
+.cta-links a {
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
