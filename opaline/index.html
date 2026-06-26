@@ -1,21 +1,21 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Opaline — 갈아입는 테마 캘린더. 20가지가 넘는 테마, 홈 화면 위젯과 잠금화면 월페이퍼, iPhone에 이미 있는 일정과 가입 없이 동기화.">
-  <meta property="og:title" content="Opaline — 갈아입는 테마 캘린더">
-  <meta property="og:description" content="20가지가 넘는 테마로 갈아입고, 홈 화면 위젯·잠금화면 월페이퍼로 한눈에. iPhone에 이미 있는 일정과 가입 없이 바로 동기화돼요.">
+  <meta name="description" content="Opaline — a themed calendar you'll actually want to open. 20+ themes, a Home Screen widget, lock-screen wallpaper, and instant sync with the calendars already on your iPhone.">
+  <meta property="og:title" content="Opaline — Themed Calendar">
+  <meta property="og:description" content="20+ themes, a Home Screen widget, lock-screen wallpaper, and instant sync with the calendars already on your iPhone — no account needed.">
   <meta property="og:url" content="https://vyxworks.com/opaline/">
   <meta property="og:site_name" content="VyxWorks">
   <link rel="canonical" href="https://vyxworks.com/opaline/">
   <link rel="icon" href="/assets/img/opaline-logo.svg" type="image/svg+xml">
   <link rel="stylesheet" href="/assets/css/base.css">
-  <title>Opaline — 갈아입는 테마 캘린더 | VyxWorks</title>
+  <title>Opaline — Themed Calendar | VyxWorks</title>
   <style>
-    /* Opaline 페이지 스코프 — 오팔(보석)빛 그라데이션 액센트.
-       링크·버튼 등 base.css 가 참조하는 단색 액센트는 오팔 퍼플-블루 대표값으로 덮고,
-       히어로/배지에는 무지갯빛 그라데이션을 별도로 입힌다. */
+    /* Opaline page scope — monochrome accent (matches the app icon).
+       Override base.css's green accent with neutral, flip it light/dark,
+       and give the App Store badge a single-color (inverted) fill. */
     :root {
       --color-accent: #0A0A0A;
       --color-accent-fg: #FFFFFF;
@@ -28,7 +28,7 @@
         --color-accent-fg: #0A0A0A;
         --badge-bg: #F5F6F7;
         --badge-fg: #0A0A0A;
-        /* base.css 네이비 틴트 다크 → 순수 뉴트럴로 교체 (샘플과 일치) */
+        /* Replace base.css's navy-tinted dark with pure neutral */
         --color-bg: #0C0C0D;
         --color-surface: #161618;
         --color-border: #232326;
@@ -133,13 +133,13 @@
     <section class="hero">
       <div class="container">
         <img class="hero-logo" src="/assets/img/opaline-logo.svg" alt="Opaline">
-        <h1>매일 열고 싶어지는<br><span class="grad">갈아입는 캘린더</span></h1>
-        <p>20가지가 넘는 테마로 갈아입고, 홈 화면 위젯과 잠금화면 월페이퍼로 한눈에. iPhone에 이미 있는 일정과 가입 없이 바로 동기화돼요.</p>
+        <h1>The calendar you'll<br><span class="grad">actually want to open.</span></h1>
+        <p>20+ themes, a Home Screen widget, and lock-screen wallpaper — with instant sync to the calendars already on your iPhone. No account needed.</p>
         <div class="hero-actions">
-          <!-- TODO_REPLACE_APP_STORE_URL: 앱 배포 후 실제 App Store 링크로 교체 -->
+          <!-- TODO_REPLACE_APP_STORE_URL: replace with the real App Store link after release -->
           <a class="store-badge" href="#" aria-label="Download on the App Store">
             <span aria-hidden="true">🍎</span>
-            <span>Download on the<br><strong>App Store</strong><small>출시 준비 중 · 곧 만나요</small></span>
+            <span>Download on the<br><strong>App Store</strong><small>Coming soon</small></span>
           </a>
         </div>
       </div>
@@ -148,44 +148,44 @@
     <section class="features">
       <div class="feature">
         <div class="feature-icon" aria-hidden="true">🎨</div>
-        <h3>20+ 테마로 갈아입기</h3>
-        <p>미니멀부터 Y2K 네온, 8비트 픽셀, 터미널 그린, 아기자기한 동물까지. 탭 한 번에 격자·이벤트 바·폰트·위젯이 통째로 바뀌어요.</p>
+        <h3>Dress your calendar</h3>
+        <p>20+ themes — from clean minimal to Y2K neon, 8-bit pixel, terminal green, and cozy animal worlds. One tap restyles the grid, event bars, fonts, and your widget.</p>
       </div>
       <div class="feature">
         <div class="feature-icon" aria-hidden="true">📱</div>
-        <h3>위젯 · 잠금화면</h3>
-        <p>홈 화면 위젯으로 이번 달을 한눈에. 테마에 맞춘 잠금화면 월페이퍼에 이번 달 메모까지 함께 나타나요.</p>
+        <h3>Widget &amp; lock screen</h3>
+        <p>A Home Screen widget keeps this month in view, and a matching lock-screen wallpaper shows your monthly note too — without opening the app.</p>
       </div>
       <div class="feature">
         <div class="feature-icon" aria-hidden="true">🔄</div>
-        <h3>가입 없이 동기화</h3>
-        <p>Apple·iCloud·Google·Outlook — iPhone에 연결된 캘린더가 자동으로 표시돼요. 새 계정도, 옮기는 작업도 없어요.</p>
+        <h3>Sync without an account</h3>
+        <p>Apple, iCloud, Google, Outlook — any calendar connected to your iPhone shows up automatically. No new account, no migration, nothing to set up.</p>
       </div>
       <div class="feature">
         <div class="feature-icon" aria-hidden="true">🗓️</div>
-        <h3>월간 · 주간 · 일간</h3>
-        <p>한 달을 한눈에, 시간 단위까지 자세히. 핀치로 시간 간격을 조절하고, 폰트·액센트 색·주 시작 요일까지 내 마음대로.</p>
+        <h3>Month, week &amp; day</h3>
+        <p>See the whole month or zoom into hour-by-hour detail. Fonts, event-bar styles, accent color, and week start day — all adjustable.</p>
       </div>
       <div class="feature">
-        <div class="feature-icon" aria-hidden="true">🌙</div>
-        <h3>음력 · 공휴일</h3>
-        <p>한국 사용자를 위해 날짜 칸에 음력을 표시하고, 공휴일까지 한국 일정에 맞춰 보여줘요.</p>
+        <div class="feature-icon" aria-hidden="true">📝</div>
+        <h3>Notes &amp; checklists</h3>
+        <p>Jot a one-line intention for the month or build a tickable to-do list, and save the events you add often as quick templates.</p>
       </div>
       <div class="feature">
         <div class="feature-icon" aria-hidden="true">🔒</div>
-        <h3>안심하고 가볍게</h3>
-        <p>계정도 가입도 없어요. 일정은 기기와 iOS 캘린더에만 남고, 광고 추적은 하지 않아요.</p>
+        <h3>Private by design</h3>
+        <p>No account, no sign-up. Your events stay on your device and in your iOS calendars, and there's no ad tracking.</p>
       </div>
     </section>
 
     <p class="pricing-note">
-      기본 테마는 <strong>무료</strong>예요. 추가 테마는 일회성 구매로 — 단품으로, 테마 팩으로, 또는 <strong>All Access</strong>로 전부 잠금 해제. <strong>구독은 없어요.</strong>
+      Opaline is <strong>free</strong> with the default theme. Extra themes are one-time purchases — individually, in theme packs, or unlock everything with <strong>All Access</strong>. <strong>No subscriptions, ever.</strong>
     </p>
 
     <nav class="cta-links" aria-label="Legal and support">
-      <a href="/opaline/privacy/">개인정보처리방침</a>
-      <a href="/opaline/terms/">이용약관</a>
-      <a href="mailto:support@vyxworks.com">문의하기</a>
+      <a href="/opaline/privacy/">Privacy Policy</a>
+      <a href="/opaline/terms/">Terms of Service</a>
+      <a href="mailto:support@vyxworks.com">Contact</a>
     </nav>
   </main>
 
