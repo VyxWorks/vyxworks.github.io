@@ -37,18 +37,11 @@
       flex-wrap: wrap;
       justify-content: center;
     }
-    .store-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 12px 18px;
-      border: 1px solid var(--color-border);
-      border-radius: 10px;
-      color: var(--color-fg);
-      font-size: 14px;
-      border-bottom: 1px solid var(--color-border);
-    }
-    .store-badge small { color: var(--color-muted); font-size: 11px; display: block; }
+    /* Official Apple "Download on the App Store" badge — do not restyle the
+       artwork itself (Apple guidelines). Wrapper only controls size + clear space. */
+    .store-badge { display: inline-block; border-bottom: none; transition: opacity 0.15s ease; }
+    .store-badge img { height: 48px; width: auto; display: block; }
+    .store-badge:hover { opacity: 0.85; border-bottom: none; }
     .features {
       padding: 48px 0 32px;
       display: grid;
@@ -100,8 +93,10 @@
       <p>GPS로 주차한 곳을 저장하고 Apple Watch에서 한 번에 찾아가세요. 모든 데이터는 당신의 기기에만 남습니다.</p>
       <div class="hero-actions">
         <a class="store-badge" href="https://apps.apple.com/app/id6761619520" target="_blank" rel="noopener" aria-label="App Store에서 CarPin 다운로드">
-          <span aria-hidden="true">🍎</span>
-          <span>Download on the<br><strong>App Store</strong><small>iPhone · Apple Watch</small></span>
+          <picture>
+            <source srcset="/assets/img/app-store-badge-white-ko.svg" media="(prefers-color-scheme: dark)">
+            <img src="/assets/img/app-store-badge-black-ko.svg" alt="App Store에서 다운로드" width="156" height="48">
+          </picture>
         </a>
       </div>
     </section>

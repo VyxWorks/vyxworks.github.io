@@ -19,15 +19,11 @@
     :root {
       --color-accent: #0A0A0A;
       --color-accent-fg: #FFFFFF;
-      --badge-bg: #0A0A0A;
-      --badge-fg: #FFFFFF;
     }
     @media (prefers-color-scheme: dark) {
       :root {
         --color-accent: #F5F6F7;
         --color-accent-fg: #0A0A0A;
-        --badge-bg: #F5F6F7;
-        --badge-fg: #0A0A0A;
         /* Replace base.css's navy-tinted dark with pure neutral */
         --color-bg: #0C0C0D;
         --color-surface: #161618;
@@ -55,21 +51,11 @@
       margin: 0 auto 32px;
     }
     .hero-actions { display: inline-flex; gap: 12px; flex-wrap: wrap; justify-content: center; }
-    .store-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      padding: 13px 22px;
-      border-radius: 12px;
-      background: var(--badge-bg);
-      color: var(--badge-fg);
-      font-size: 15px;
-      font-weight: 600;
-      border-bottom: none;
-      transition: transform 0.15s ease, opacity 0.15s ease;
-    }
-    .store-badge:hover { transform: translateY(-1px); opacity: 0.9; border-bottom: none; }
-    .store-badge small { display: block; font-size: 11px; font-weight: 500; opacity: 0.85; }
+    /* Official Apple "Download on the App Store" badge — do not restyle the
+       artwork itself (Apple guidelines). Wrapper only controls size + clear space. */
+    .store-badge { display: inline-block; border-bottom: none; transition: opacity 0.15s ease; }
+    .store-badge img { height: 48px; width: auto; display: block; }
+    .store-badge:hover { opacity: 0.85; border-bottom: none; }
 
     .features {
       padding: 52px 0 24px;
@@ -136,10 +122,11 @@
         <h1>The calendar you'll<br><span class="grad">actually want to open.</span></h1>
         <p>20+ themes, a Home Screen widget, and lock-screen wallpaper — with instant sync to the calendars already on your iPhone. No account needed.</p>
         <div class="hero-actions">
-          <!-- TODO_REPLACE_APP_STORE_URL: replace with the real App Store link after release -->
-          <a class="store-badge" href="#" aria-label="Download on the App Store">
-            <span aria-hidden="true">🍎</span>
-            <span>Download on the<br><strong>App Store</strong><small>Coming soon</small></span>
+          <a class="store-badge" href="https://apps.apple.com/app/id6779310646" target="_blank" rel="noopener" aria-label="Download Opaline on the App Store">
+            <picture>
+              <source srcset="/assets/img/app-store-badge-white-en.svg" media="(prefers-color-scheme: dark)">
+              <img src="/assets/img/app-store-badge-black-en.svg" alt="Download on the App Store" width="144" height="48">
+            </picture>
           </a>
         </div>
       </div>
