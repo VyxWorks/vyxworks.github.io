@@ -45,7 +45,7 @@
     <header class="legal-header">
       <h1>CarPin 隐私政策</h1>
       <p class="legal-meta">
-        最后更新: 2026-04-24 · 生效日期: 2026-04-24<br>
+        最后更新: 2026-09-10 · 生效日期: 2026-09-17<br>
         运营方: VyxWorks · 服务: CarPin (iOS · watchOS)
       </p>
     </header>
@@ -74,7 +74,7 @@
       <p>VyxWorks (以下简称"我们") 尊重 CarPin (以下简称"本服务") 用户的隐私。本政策说明我们处理的个人信息项目、目的、保存期限以及您可行使的权利。</p>
 
       <div class="legal-callout">
-        <strong>摘要。</strong> CarPin 没有账号或注册。停车位置和照片仅保存在您的设备中，不会上传至我们的服务器。为了展示广告，Google Mobile Ads SDK 可能会处理广告标识符 (IDFA)。
+        <strong>摘要。</strong> CarPin 没有账号或注册。停车位置和照片仅保存在您的设备中，不会上传至我们的服务器。为进行分析和广告投放，Google SDK 可能会处理使用事件、根据 IP 地址推断的粗略位置、设备标识符、广告数据及诊断信息。
       </div>
 
       <h2 id="s1">1. 处理的个人信息</h2>
@@ -97,35 +97,43 @@
             <td>设备本地</td>
           </tr>
           <tr>
-            <td>1.3 广告标识符</td>
-            <td>IDFA (Identifier for Advertisers)</td>
-            <td>iOS 系统 API 与 Google Mobile Ads SDK</td>
+            <td>1.3 广告、设备与诊断信息</td>
+            <td>IDFA 等设备标识符、根据 IP 地址推断的粗略位置、展示的广告与广告互动、崩溃、性能及其他诊断信息</td>
+            <td>iOS 系统 API、Google Mobile Ads 及 User Messaging Platform SDK</td>
             <td>Google 服务器 (SDK 提供方)</td>
           </tr>
           <tr>
-            <td>1.4 支付信息</td>
+            <td>1.4 使用分析信息</td>
+            <td>功能使用事件、应用生命周期、进入方式、输入字段是否存在、计时器与通知状态、应用与设备信息、应用实例标识符</td>
+            <td>Firebase Analytics 与 Google Mobile Ads SDK</td>
+            <td>Google 服务器 (SDK 提供方)</td>
+          </tr>
+          <tr>
+            <td>1.5 支付信息</td>
             <td>Apple 交易 ID (收据) — 仅用于恢复购买</td>
             <td>Apple StoreKit 2</td>
             <td>Apple 服务器 (App 无法访问银行卡或账户信息)</td>
           </tr>
         </tbody>
       </table>
+      <p>按照 App Store 隐私披露标准，粗略位置、设备标识符、产品互动及广告数据可能与应用或设备关联。崩溃、性能及其他诊断数据不会与您关联。在获得 ATT 许可后，仅设备标识符可能用于跨其他公司的 App 和网站进行跟踪。</p>
 
-      <h3>1.5 不收集的信息</h3>
+      <h3>1.6 不收集的信息</h3>
       <p>我们 <strong>不会收集或传输</strong> 以下信息:</p>
       <ul>
         <li>姓名、电子邮件、电话号码等账号信息 (无需注册)</li>
         <li>通讯录、地址簿、通话记录</li>
         <li>健康、运动、生物识别信息</li>
         <li>后台持续位置追踪 (仅处理地理围栏进入/离开事件)</li>
-        <li>Firebase Analytics 等行为分析数据</li>
+        <li>Firebase Analytics 事件中的停车坐标、地点名称、楼层/区域/备注、照片或停车记录标识符</li>
       </ul>
 
       <h2 id="s2">2. 处理目的</h2>
       <ol>
         <li><strong>保存并显示停车位置</strong> — 在设备上存储位置和照片，便于您日后寻回。</li>
         <li><strong>收藏地点提醒</strong> — 进入或离开您登记的地点时触发本地地理围栏通知。</li>
-        <li><strong>广告展示</strong> — 展示广告并测量广告效果以维持免费功能 (Google Mobile Ads SDK)。</li>
+        <li><strong>广告展示</strong> — 展示、个性化并衡量广告效果，以维持免费功能 (Google Mobile Ads SDK)。</li>
+        <li><strong>服务分析</strong> — 分析功能使用、广告、错误、性能及通知流程，以提升可靠性与易用性 (Google SDK)。</li>
         <li><strong>应用内购买</strong> — 恢复并结算主题与图标的一次性购买 (Apple StoreKit 2)。</li>
       </ol>
 
@@ -138,7 +146,8 @@
       </ul>
       <h3>3.2 第三方服务数据</h3>
       <ul>
-        <li>Google Mobile Ads SDK 处理的广告标识符及相关数据的保存期限遵循 Google 的政策。</li>
+        <li>Google Mobile Ads 与 User Messaging Platform SDK 处理的设备标识符、粗略位置、广告、互动及诊断信息，按照 Google 的政策保存。</li>
+        <li>Firebase Analytics 处理的使用事件、粗略位置与应用实例标识符，按照 Google 的政策及 Firebase 项目设置保存。</li>
         <li>Apple 收据数据按 Apple 的政策保存。</li>
       </ul>
 
@@ -152,14 +161,20 @@
           <tr>
             <td>Google LLC</td>
             <td>广告投放与效果测量 (Google Mobile Ads SDK)</td>
-            <td>IDFA、设备/广告事件信息</td>
+            <td>设备标识符、基于 IP 的粗略位置、广告数据、产品互动、崩溃、性能及其他诊断信息</td>
             <td><a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google 隐私政策</a></td>
           </tr>
           <tr>
             <td>Google LLC</td>
             <td>GDPR 同意管理 (User Messaging Platform)</td>
-            <td>同意状态</td>
+            <td>同意状态、基于 IP 的粗略位置、产品互动及性能信息</td>
             <td><a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google 隐私政策</a></td>
+          </tr>
+          <tr>
+            <td>Google LLC</td>
+            <td>服务使用分析 (Firebase Analytics)</td>
+            <td>功能事件、应用生命周期、进入方式、输入字段是否存在、计时器与通知状态、应用与设备信息、基于 IP 的粗略位置、应用实例标识符</td>
+            <td><a href="https://firebase.google.com/support/privacy" target="_blank" rel="noopener">Firebase 隐私与安全</a></td>
           </tr>
           <tr>
             <td>Apple Inc.</td>
@@ -193,11 +208,11 @@
       <p>CarPin 不面向 <strong>13 岁以下</strong> 儿童 (美国 COPPA 标准)。我们不会有意收集该年龄段用户的个人信息；如发现相关情况，将立即删除。若所在国家法定最低年龄更高，则适用更高年龄。</p>
 
       <h2 id="s8">8. 跨境数据传输</h2>
-      <p>Google Mobile Ads SDK 处理的广告标识符及相关数据可能被传输并存储在 Google 位于美国等地的数据中心。Apple 收据数据亦在 Apple 的海外服务器中处理。传输依据 Google 和 Apple 的标准合同条款 (SCC) 及其各自政策。</p>
+      <p>Google Mobile Ads、User Messaging Platform 与 Firebase Analytics 处理的设备标识符、粗略位置、使用、广告及诊断信息，可能被传输并存储在 Google 位于美国等地的数据中心。Apple 收据数据亦在 Apple 的海外服务器中处理。传输依据 Google 和 Apple 的标准合同条款 (SCC) 及其各自政策。</p>
 
       <h2 id="s9">9. 欧盟用户 (GDPR)</h2>
       <ul>
-        <li><strong>法律依据</strong> — 履行服务 (GDPR 第 6 条第 1 款 (b)) 及同意 (第 6 条第 1 款 (a)，仅限广告跟踪)。</li>
+        <li><strong>法律依据</strong> — 履行服务 (GDPR 第 6 条第 1 款 (b))、改善可靠性与易用性的合法利益 (第 6 条第 1 款 (f))，及同意 (第 6 条第 1 款 (a)，仅限广告跟踪)。</li>
         <li><strong>权利</strong> — 查阅、更正、删除、数据可携、限制处理、反对、撤回同意。</li>
         <li><strong>同意管理</strong> — 可随时在 Google UMP 表单中修改；在 iOS 设置中撤销 ATT 授权。</li>
         <li><strong>跨境传输</strong> — 参见第 8 条。</li>
@@ -234,7 +249,7 @@
       <ul>
         <li><strong>应用沙盒</strong> — 数据仅存储在 iOS 应用沙盒中，其他应用无法访问。</li>
         <li><strong>设备加密</strong> — 使用 iOS 文件加密 (Data Protection) 的默认设置。</li>
-        <li><strong>无网络传输</strong> — 停车位置和照片不会传输到我们的服务器。</li>
+        <li><strong>不传输停车内容</strong> — 停车坐标、地点名称、楼层/区域/备注、照片和停车记录标识符不会发送至分析服务器。</li>
         <li><strong>最小权限原则</strong> — 仅在需要时请求权限。</li>
       </ul>
 
@@ -244,6 +259,7 @@
           <tr><th>版本</th><th>生效日期</th><th>主要变更</th></tr>
         </thead>
         <tbody>
+          <tr><td>1.1</td><td>2026-09-17</td><td>说明 Google SDK 对分析、广告及诊断数据的处理范围</td></tr>
           <tr><td>1.0</td><td>2026-04-24</td><td>首次发布</td></tr>
         </tbody>
       </table>

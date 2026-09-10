@@ -45,7 +45,7 @@
     <header class="legal-header">
       <h1>CarPin プライバシーポリシー</h1>
       <p class="legal-meta">
-        最終更新日: 2026-04-24 · 施行日: 2026-04-24<br>
+        最終更新日: 2026-09-10 · 施行日: 2026-09-17<br>
         運営者: VyxWorks · サービス: CarPin (iOS · watchOS)
       </p>
     </header>
@@ -74,7 +74,7 @@
       <p>VyxWorks (以下「当社」) は、CarPin (以下「本サービス」) のユーザーのプライバシーを尊重します。本ポリシーは、本サービスが取り扱う個人情報の項目・目的・保管期間およびユーザーの権利について説明します。</p>
 
       <div class="legal-callout">
-        <strong>要約。</strong> CarPin にはアカウント登録がありません。駐車位置と写真は端末内にのみ保存され、サーバーには送信されません。広告表示のため Google Mobile Ads SDK が広告識別子 (IDFA) を処理する場合があります。
+        <strong>要約。</strong> CarPin にはアカウント登録がありません。駐車位置と写真は端末内にのみ保存され、サーバーには送信されません。分析および広告配信のため、Google SDK が利用イベント、IP アドレスから推定されるおおよその位置情報、端末識別子、広告・診断情報を処理する場合があります。
       </div>
 
       <h2 id="s1">1. 取り扱う個人情報</h2>
@@ -97,35 +97,43 @@
             <td>端末内</td>
           </tr>
           <tr>
-            <td>1.3 広告識別子</td>
-            <td>IDFA (Identifier for Advertisers)</td>
-            <td>iOS システム API、Google Mobile Ads SDK</td>
+            <td>1.3 広告・端末・診断情報</td>
+            <td>IDFA 等の端末識別子、IP アドレスから推定されるおおよその位置情報、表示広告と広告操作、クラッシュ・パフォーマンス・その他の診断情報</td>
+            <td>iOS システム API、Google Mobile Ads および User Messaging Platform SDK</td>
             <td>Google サーバー (SDK 提供者)</td>
           </tr>
           <tr>
-            <td>1.4 決済情報</td>
+            <td>1.4 利用分析情報</td>
+            <td>機能利用イベント、アプリのライフサイクル、起動経路、入力項目の有無、タイマー・通知の状態、アプリ・端末情報、アプリインスタンス識別子</td>
+            <td>Firebase Analytics および Google Mobile Ads SDK</td>
+            <td>Google サーバー (SDK 提供者)</td>
+          </tr>
+          <tr>
+            <td>1.5 決済情報</td>
             <td>Apple 取引 ID (レシート) — 購入復元のみに使用</td>
             <td>Apple StoreKit 2</td>
             <td>Apple サーバー (当アプリはカード・口座情報にアクセスできません)</td>
           </tr>
         </tbody>
       </table>
+      <p>App Store のプライバシー開示基準では、おおよその位置情報・端末識別子・製品操作・広告データはアプリまたは端末に関連付けられる場合があります。クラッシュ・パフォーマンス・その他の診断データはユーザーに関連付けません。ATT の許可がある場合、端末識別子のみが他社のアプリやウェブサイトを横断するトラッキングに使用される場合があります。</p>
 
-      <h3>1.5 取得しない情報</h3>
+      <h3>1.6 取得しない情報</h3>
       <p>当社は以下の情報を <strong>取得・送信しません</strong>。</p>
       <ul>
         <li>氏名、メールアドレス、電話番号などのアカウント情報 (登録なし)</li>
         <li>連絡先、アドレス帳、通話履歴</li>
         <li>健康・フィットネス・生体情報</li>
         <li>バックグラウンドでの継続的な位置追跡 (ジオフェンスの出入りイベントのみ)</li>
-        <li>Firebase Analytics などの行動分析データ</li>
+        <li>Firebase Analytics イベント内の駐車座標、場所名、階・区画・メモ、写真、駐車記録識別子</li>
       </ul>
 
       <h2 id="s2">2. 利用目的</h2>
       <ol>
         <li><strong>駐車位置の保存と表示</strong> — 位置情報と写真を端末に保存し、後で戻る際に利用します。</li>
         <li><strong>お気に入り通知</strong> — 登録された場所への進入・退出時にジオフェンス通知を提供します。</li>
-        <li><strong>広告表示</strong> — 無料機能を維持するため広告を表示し、広告効果を測定します (Google Mobile Ads SDK)。</li>
+        <li><strong>広告表示</strong> — 無料機能を維持するため広告を表示・最適化し、広告効果を測定します (Google Mobile Ads SDK)。</li>
+        <li><strong>サービス分析</strong> — 機能利用、広告、エラー、パフォーマンス、通知の流れを分析し、信頼性と使いやすさを改善します (Google SDK)。</li>
         <li><strong>アプリ内課金</strong> — テーマ・アイコンの買い切り購入の復元および精算 (Apple StoreKit 2)。</li>
       </ol>
 
@@ -138,7 +146,8 @@
       </ul>
       <h3>3.2 外部サービスのデータ</h3>
       <ul>
-        <li>Google Mobile Ads SDK が扱う広告識別子および関連データの保管期間は Google のポリシーに従います。</li>
+        <li>Google Mobile Ads および User Messaging Platform SDK が処理する端末識別子、おおよその位置情報、広告・操作・診断情報の保管期間は Google のポリシーに従います。</li>
+        <li>Firebase Analytics が処理する利用イベント、おおよその位置情報、アプリインスタンス識別子の保管期間は、Google のポリシーおよび Firebase プロジェクト設定に従います。</li>
         <li>Apple レシートデータは Apple のポリシーに従って保管されます。</li>
       </ul>
 
@@ -152,14 +161,20 @@
           <tr>
             <td>Google LLC</td>
             <td>広告配信および効果測定 (Google Mobile Ads SDK)</td>
-            <td>IDFA、端末・広告イベント情報</td>
+            <td>端末識別子、IP ベースのおおよその位置情報、広告データ、製品操作、クラッシュ・パフォーマンス・その他の診断情報</td>
             <td><a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google プライバシーポリシー</a></td>
           </tr>
           <tr>
             <td>Google LLC</td>
             <td>GDPR 同意管理 (User Messaging Platform)</td>
-            <td>同意状態</td>
+            <td>同意状態、IP ベースのおおよその位置情報、製品操作、パフォーマンス情報</td>
             <td><a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google プライバシーポリシー</a></td>
+          </tr>
+          <tr>
+            <td>Google LLC</td>
+            <td>サービス利用分析 (Firebase Analytics)</td>
+            <td>機能イベント、アプリのライフサイクル、起動経路、入力項目の有無、タイマー・通知の状態、アプリ・端末情報、IP ベースのおおよその位置情報、アプリインスタンス識別子</td>
+            <td><a href="https://firebase.google.com/support/privacy" target="_blank" rel="noopener">Firebase のプライバシーとセキュリティ</a></td>
           </tr>
           <tr>
             <td>Apple Inc.</td>
@@ -193,11 +208,11 @@
       <p>CarPin は <strong>13 歳未満</strong> (米国 COPPA 基準) を対象としていません。当該年齢の個人情報を意図的に取得することはなく、取得が判明した場合は速やかに削除します。居住国の法定年齢がより高い場合はその年齢が適用されます。</p>
 
       <h2 id="s8">8. 国外移転</h2>
-      <p>Google Mobile Ads SDK が処理する広告識別子および関連データは、米国などの Google データセンターへ移転・保管されることがあります。Apple のレシートデータも Apple の海外サーバーで処理されます。移転は Google および Apple の標準契約条項 (SCC) および各社ポリシーに基づきます。</p>
+      <p>Google Mobile Ads、User Messaging Platform および Firebase Analytics が処理する端末識別子、おおよその位置情報、利用・広告・診断情報は、米国などの Google データセンターへ移転・保管されることがあります。Apple のレシートデータも Apple の海外サーバーで処理されます。移転は Google および Apple の標準契約条項 (SCC) および各社ポリシーに基づきます。</p>
 
       <h2 id="s9">9. EU ユーザー (GDPR)</h2>
       <ul>
-        <li><strong>法的根拠</strong> — サービス履行 (GDPR 6 条 1 項 (b)) および同意 (6 条 1 項 (a)、広告トラッキングに限る)。</li>
+        <li><strong>法的根拠</strong> — サービス履行 (GDPR 6 条 1 項 (b))、信頼性・使いやすさ改善のための正当な利益 (6 条 1 項 (f))、および同意 (6 条 1 項 (a)、広告トラッキングに限る)。</li>
         <li><strong>権利</strong> — アクセス、訂正、削除、ポータビリティ、制限、異議、同意の撤回。</li>
         <li><strong>同意管理</strong> — Google UMP フォームでいつでも変更可能。iOS 設定で ATT も取り消せます。</li>
         <li><strong>国外移転</strong> — 第 8 項を参照。</li>
@@ -234,7 +249,7 @@
       <ul>
         <li><strong>アプリサンドボックス</strong> — データは iOS のアプリサンドボックス内にのみ保存され、他のアプリからアクセスできません。</li>
         <li><strong>端末暗号化</strong> — iOS のファイル暗号化 (Data Protection) の既定値に従います。</li>
-        <li><strong>ネットワーク送信なし</strong> — 駐車位置・写真は外部サーバーへ送信されません。</li>
+        <li><strong>駐車コンテンツの送信なし</strong> — 駐車座標、場所名、階・区画・メモ、写真、駐車記録識別子は分析サーバーへ送信されません。</li>
         <li><strong>最小権限の原則</strong> — 必要な時点でのみ権限を要求します。</li>
       </ul>
 
@@ -244,6 +259,7 @@
           <tr><th>バージョン</th><th>施行日</th><th>主な変更</th></tr>
         </thead>
         <tbody>
+          <tr><td>1.1</td><td>2026-09-17</td><td>Google SDK の分析・広告・診断データの処理範囲を明記</td></tr>
           <tr><td>1.0</td><td>2026-04-24</td><td>初版</td></tr>
         </tbody>
       </table>
