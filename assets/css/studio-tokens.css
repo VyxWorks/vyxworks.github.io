@@ -60,6 +60,9 @@
   --text-2xl: 2.5rem;
   --text-3xl: 3.5rem;
   --text-4xl: clamp(2.25rem, 6.4vw, 3.9rem);
+  /* product landings run a shorter headline than the home, so they get their
+     own display step rather than borrowing --text-4xl and overshooting */
+  --text-product: clamp(2rem, 5.2vw, 3.1rem);
   /* sized so the 22-character mailto stays on one line at 320px (gate 49) */
   --text-contact: clamp(1.05rem, 5.2vw, 1.75rem);
 
