@@ -13,6 +13,9 @@
   <link rel="stylesheet" href="/assets/css/base.css">
   <title>CarPin — 주차 위치, 이제 잊지 마세요 | VyxWorks</title>
   <style>
+    /* Hallmark · macrostructure: Marquee Hero · design-system: DESIGN.md
+       · tone: quiet utility · anchor hue: green #04C98A
+       · retro-stamped after a hallmark audit — this page predates the skill. */
     .hero {
       padding: 72px 0 56px;
       text-align: center;
@@ -42,21 +45,31 @@
     .store-badge { display: inline-block; border-bottom: none; transition: opacity 0.15s ease; }
     .store-badge img { height: 48px; width: auto; display: block; }
     .store-badge:hover { opacity: 0.85; border-bottom: none; }
+    /* 항목이 3개뿐이라 균등 3열 카드 그리드(생성형 UI 의 대표 지문)를 쓰지 않는다.
+       카드 껍데기를 걷어내고 헤어라인으로 나눈 타이포 리듬으로 간다 —
+       그림자 없이 테두리와 여백으로 위계를 만든다는 DESIGN.md 원칙과도 맞는다.
+       Opaline 의 비대칭 스팬 그리드와도 리듬이 겹치지 않는다. */
     .features {
       padding: 48px 0 32px;
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 16px;
+      gap: 0;
+      max-width: 560px;
+      margin: 0 auto;
+      text-align: left;
     }
     .feature {
-      padding: 24px;
-      border: 1px solid var(--color-border);
-      border-radius: 14px;
-      background: var(--color-surface);
+      display: grid;
+      grid-template-columns: 20px 1fr;
+      column-gap: 14px;
+      row-gap: 4px;
+      padding: 18px 2px;
+      border-bottom: 1px solid var(--color-border);
     }
-    .feature-icon { font-size: 28px; margin-bottom: 12px; }
-    .feature h3 { font-size: 16px; font-weight: 600; margin-bottom: 6px; }
-    .feature p { font-size: 14px; color: var(--color-muted); }
+    .feature:first-child { border-top: 1px solid var(--color-border); }
+    .feature-icon { width: 20px; height: 20px; color: var(--color-muted); margin-top: 2px; }
+    .feature-icon svg { width: 100%; height: 100%; display: block; }
+    .feature h3 { font-size: 16px; font-weight: 600; }
+    .feature p { grid-column: 2; font-size: 14px; color: var(--color-muted); }
     .cta-links {
       display: flex;
       flex-wrap: wrap;
@@ -66,7 +79,6 @@
       font-size: 14px;
     }
     @media (max-width: 640px) {
-      .features { grid-template-columns: 1fr; }
     }
   </style>
 </head>
@@ -103,17 +115,17 @@
 
     <section class="features">
       <div class="feature">
-        <div class="feature-icon" aria-hidden="true">📍</div>
+        <span class="feature-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M19.5 10.4c0 5.4-7.5 11.1-7.5 11.1s-7.5-5.7-7.5-11.1a7.5 7.5 0 0 1 15 0Z"/><circle cx="12" cy="10.2" r="2.8"/></svg></span>
         <h3>GPS 주차 저장</h3>
         <p>버튼 한 번이면 지금 위치를 정확히 기록합니다.</p>
       </div>
       <div class="feature">
-        <div class="feature-icon" aria-hidden="true">⭐</div>
+        <span class="feature-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="m12 3.2 2.7 5.5 6 .9-4.35 4.25 1.03 6-5.38-2.83L6.62 19.85l1.03-6L3.3 9.6l6-.9L12 3.2Z"/></svg></span>
         <h3>즐겨찾기 장소</h3>
         <p>자주 가는 주차장을 저장하고 지오펜스로 자동 알림.</p>
       </div>
       <div class="feature">
-        <div class="feature-icon" aria-hidden="true">⌚</div>
+        <span class="feature-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5.75"/><path d="M12 9.6V12l1.6 1.2"/><path d="M8.9 6.6 8.5 2.6h7l-.4 4"/><path d="M8.9 17.4l-.4 4h7l-.4-4"/></svg></span>
         <h3>Apple Watch 연동</h3>
         <p>iPhone 없이도 손목에서 바로 위치 확인.</p>
       </div>

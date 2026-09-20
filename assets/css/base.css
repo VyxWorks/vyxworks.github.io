@@ -1,3 +1,6 @@
+/* Hallmark · design-system: DESIGN.md · shared shell (nav, footer, tokens)
+   · anchor hue: zero-chroma neutral; product accent is overridden per page.
+   · Legal pages inherit this stamp — they load only this shell. */
 /* vyxworks base stylesheet — shared across all product sites. */
 
 :root {
@@ -88,6 +91,12 @@ img, svg { display: block; max-width: 100%; }
 }
 
 .site-nav-brand svg { width: 22px; height: 22px; }
+
+/* 로고의 V 는 사각형을 배경색으로 뚫는다.
+   rect 는 fill="currentColor"(= --color-fg) 라 다크에서 밝아지는데,
+   마크업의 stroke="#fff" 를 그대로 두면 밝은 사각형에 흰 획이 되어
+   대비 약 1.08:1 로 사라진다. 여기서 배경색으로 덮어 양쪽 스킴에서 살린다. */
+.site-nav-brand svg path { stroke: var(--color-bg); }
 
 .site-nav-links {
   display: flex;

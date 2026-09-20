@@ -1,0 +1,130 @@
+/* Hallmark · macrostructure: Marquee Hero · genre: modern-minimal
+ * theme: studied-DNA (source: usehallmark.com/examples/tally/)
+ * paper-band: light · display-style: geometric-sans · accent-hue: cool-indigo
+ * nav: N5 Floating pill · footer: Ft5 Statement · enrichment: Tier A CSS art
+ * scope: / (studio home only). Product landings and legal pages stay on base.css.
+ * deviations from source: ink-2 52% to 47% and ink-3 70% to 64% for WCAG AA;
+ *   Instrument Serif dropped (gate 38a, no italic headers); dark scheme authored
+ *   here because the source ships light-only.
+ *
+ * pre-emit critique: P4 H5 E4 S4 R3 V3  (no axis below 3 — no revision pass)
+ *   R3: four decorative layers coexist (grid overlay, dashed card outline,
+ *       marquee, background bloom). Each is from the source DNA; together
+ *       they are the most decoration this site has ever carried.
+ *   V3: shares the Marquee Hero macrostructure with carpin/. Diversification
+ *       is suspended on a studied-DNA build (SKILL.md 2.6 Condition 0), but
+ *       the structural distance is genuinely smaller than a catalog rotation.
+ *
+ * contrast: pass (40-41, 22 pairs measured, light + dark)
+ * mobile:   pass (34, 49, 50-57, measured at 320/375/414/768/1024)
+ * honest:   pass (46, every figure traced to opaline/ carpin/ or the footer)
+ * chrome:   pass (47) · tokens: pass (48) · icons: pass (30)
+ * open:     29 (background bloom footprint), 38 (mono register in 7 slots),
+ *           44a (hero bottom padding) - accepted, see DESIGN.md studio-home
+ */
+
+:root {
+  color-scheme: light dark;
+
+  /* Paper — cool near-white band */
+  --color-paper-0: oklch(98.4% 0.005 258);   /* page */
+  --color-paper-1: oklch(96.2% 0.010 258);   /* card */
+  --color-paper-2: oklch(93.0% 0.015 258);   /* elevated / hover */
+  --color-paper-3: oklch(89.0% 0.020 258);   /* hairline tint */
+
+  /* Ink — four steps, all AA on paper-0 and paper-1 */
+  --color-ink-0: oklch(18.0% 0.030 258);     /* display + primary */
+  --color-ink-1: oklch(35.0% 0.025 258);     /* body */
+  --color-ink-2: oklch(47.0% 0.020 258);     /* secondary, mono eyebrow */
+  --color-ink-3: oklch(64.0% 0.016 258);     /* decorative only, never text-only meaning */
+
+  /* Accent — single indigo. The companion lime is a status colour, not decoration. */
+  --color-accent: oklch(54.0% 0.220 268);
+  --color-accent-fg: oklch(98.4% 0.005 258);
+  --color-accent-soft: oklch(72.0% 0.140 268);
+  --color-accent-tint: oklch(94.0% 0.040 268);
+  --color-companion: oklch(62.0% 0.150 145);  /* shipped status */
+  --color-focus: oklch(46.0% 0.220 268);
+
+  /* Type — Geist pair. Display and body share the family (single-family discipline). */
+  --font-display: "Geist", ui-sans-serif, system-ui, -apple-system, sans-serif;
+  --font-body: "Geist", ui-sans-serif, system-ui, -apple-system, sans-serif;
+  --font-mono: "Geist Mono", ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+
+  --text-xs: 0.75rem;
+  --text-sm: 0.875rem;
+  --text-base: 1rem;
+  --text-md: 1.125rem;
+  --text-lg: 1.375rem;
+  --text-xl: 1.75rem;
+  --text-2xl: 2.5rem;
+  --text-3xl: 3.5rem;
+  --text-4xl: clamp(2.25rem, 6.4vw, 3.9rem);
+  /* sized so the 22-character mailto stays on one line at 320px (gate 49) */
+  --text-contact: clamp(1.05rem, 5.2vw, 1.75rem);
+
+  /* Space — 4pt scale */
+  --space-2xs: 0.25rem;
+  --space-xs: 0.5rem;
+  --space-sm: 0.75rem;
+  --space-md: 1rem;
+  --space-lg: 1.5rem;
+  --space-xl: 2rem;
+  --space-2xl: 3rem;
+  --space-3xl: 5rem;
+  --space-4xl: 8rem;
+
+  /* Radius */
+  --radius-sm: 6px;
+  --radius-md: 12px;
+  --radius-lg: 20px;
+  --radius-xl: 28px;
+  --radius-pill: 999px;
+
+  /* Lines */
+  --rule-hair: 1px solid color-mix(in oklch, var(--color-ink-0) 8%, transparent);
+  --rule-soft: 1px solid color-mix(in oklch, var(--color-ink-0) 14%, transparent);
+
+  /* Depth — tokenised so the dark scheme can swap it rather than inherit a light-only glow */
+  --shadow-nav: 0 1px 0 rgba(255, 255, 255, 0.6) inset, 0 8px 30px -12px rgba(20, 30, 80, 0.18);
+  --shadow-card: 0 1px 0 rgba(255, 255, 255, 0.7) inset, 0 24px 60px -28px rgba(20, 30, 80, 0.25), 0 4px 12px -4px rgba(20, 30, 80, 0.08);
+
+  /* Motion */
+  --ease-out: cubic-bezier(0.22, 0.61, 0.36, 1);
+  --ease-in: cubic-bezier(0.55, 0.06, 0.68, 0.19);
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+  --dur-fast: 140ms;
+  --dur-mid: 240ms;
+  --dur-slow: 420ms;
+
+  /* Layout */
+  --container-max: 1120px;
+  /* pointer targets are 44px minimum; the pill keeps its slim look by
+     growing the hit area with a pseudo-element instead of padding. */
+  --tap-min: 44px;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-paper-0: oklch(16.0% 0.018 258);
+    --color-paper-1: oklch(20.5% 0.020 258);
+    --color-paper-2: oklch(25.5% 0.022 258);
+    --color-paper-3: oklch(31.0% 0.024 258);
+
+    --color-ink-0: oklch(96.0% 0.008 258);
+    --color-ink-1: oklch(85.5% 0.012 258);
+    --color-ink-2: oklch(72.0% 0.016 258);
+    --color-ink-3: oklch(56.0% 0.016 258);
+
+    --color-accent: oklch(72.0% 0.165 268);
+    --color-accent-fg: oklch(16.0% 0.018 258);
+    --color-accent-soft: oklch(56.0% 0.180 268);
+    --color-accent-tint: oklch(30.0% 0.060 268);
+    --color-companion: oklch(76.0% 0.160 145);
+    --color-focus: oklch(80.0% 0.150 268);
+
+    /* No white inset on a dark surface, and the drop shadow goes to true black. */
+    --shadow-nav: 0 1px 0 rgba(255, 255, 255, 0.04) inset, 0 8px 30px -12px rgba(0, 0, 0, 0.7);
+    --shadow-card: 0 1px 0 rgba(255, 255, 255, 0.04) inset, 0 24px 60px -28px rgba(0, 0, 0, 0.8), 0 4px 12px -4px rgba(0, 0, 0, 0.4);
+  }
+}
