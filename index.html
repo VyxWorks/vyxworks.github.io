@@ -10,446 +10,206 @@
   <meta property="og:site_name" content="VyxWorks">
   <meta property="og:type" content="website">
   <link rel="canonical" href="https://vyxworks.com/">
-  <link rel="icon" type="image/svg+xml" href="/assets/img/vyxworks-logo.svg">
-  <link rel="stylesheet" href="/assets/css/base.css">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
   <title>VyxWorks — Productivity tools, crafted with care.</title>
-  <style>
-    /* Hallmark · macrostructure: Portfolio Grid · design-system: DESIGN.md
-       · tone: quiet studio · anchor hue: none (zero-chroma neutral, mono accent #0A0A0A)
-       · retro-stamped after a hallmark audit — this page predates the skill. */
-    /* ─────────────────────────────────────────────────────────────
-       VyxWorks 스튜디오 홈 — page scope.
-       토큰 정본은 assets/css/base.css. 여기서는 스튜디오 액센트(모노크롬)와
-       홈 전용 컨테이너 폭만 덮어쓰고, 나머지 값은 전부 var() 로 받는다.
-       규칙은 ../DESIGN.md 참조.
-       ───────────────────────────────────────────────────────────── */
-    :root {
-      --color-accent: #0A0A0A;      /* 스튜디오는 모노크롬 (base.css 의 CarPin 그린 해제) */
-      --color-accent-fg: #FFFFFF;
-      --color-fg: #0A0A0A;          /* DESIGN.md Gap 4: base.css 의 #1A1A1A 는 이탈값 */
-      --max-width: 880px;           /* 홈 랜딩. 법적 고지·본문은 base.css 기본 720px */
-    }
-    @media (prefers-color-scheme: dark) {
-      :root {
-        --color-accent: #F5F6F7;
-        --color-accent-fg: #0A0A0A;
-        /* 위 :root 의 --color-fg 오버라이드는 스킴 무관하게 걸리므로
-           다크에서 반드시 되돌려야 한다. 빠뜨리면 어두운 글자가 어두운 배경에 얹힌다. */
-        --color-fg: #F5F6F7;
-        /* base.css 의 네이비 틴트 다크 → 순수 뉴트럴 (Opaline 과 동일 톤) */
-        --color-bg: #0C0C0D;
-        --color-surface: #161618;
-        --color-border: #232326;
-      }
-    }
 
-    /* 홈에는 산문 링크가 없다 — 모든 a 요소가 구조 요소(내비·카드·버튼)다.
-       base.css 의 액센트 링크 스타일(색 + 밑줄 hover)을 페이지 전역에서 해제한다. */
-    a { color: inherit; border-bottom: none; }
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
 
-    /* 홈은 디스플레이 위주 카피 — 본문 기본 1.7 보다 조인다. */
-    body { line-height: 1.5; }
-
-    /* ── Sticky Nav ────────────────────────── */
-    .nav {
-      position: sticky;
-      top: 0;
-      background: color-mix(in srgb, var(--color-bg) 85%, transparent);
-      backdrop-filter: saturate(180%) blur(20px);
-      -webkit-backdrop-filter: saturate(180%) blur(20px);
-      border-bottom: 1px solid var(--color-border);
-      z-index: 100;
-    }
-
-    .nav-inner {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      height: var(--nav-height);
-    }
-
-    .nav-brand {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      font-weight: 600;
-      letter-spacing: -0.01em;
-      color: var(--color-fg);
-    }
-
-    .nav-brand svg { width: 24px; height: 24px; }
-    /* 로고 V 는 배경색으로 뚫는다 — 다크에서 흰 사각형 위 흰 획이 되지 않도록. */
-    .nav-brand svg path { stroke: var(--color-bg); }
-
-    .nav-links {
-      display: flex;
-      gap: 28px;
-      font-size: 14px;
-      color: var(--color-muted);
-    }
-
-    .nav-links a:hover { color: var(--color-fg); }
-
-    /* ── Hero ──────────────────────────────── */
-    .hero {
-      padding: 96px 0 80px;
-      text-align: center;
-    }
-
-    .hero-logo {
-      width: 56px;
-      height: 56px;
-      margin: 0 auto 32px;
-    }
-
-    /* 마크업의 하드코딩 fill 을 토큰으로 덮는다 (다크 대응). */
-    .hero-logo rect { fill: var(--color-fg); }
-    .hero-logo path { stroke: var(--color-bg); }
-
-    .hero h1 {
-      font-size: clamp(36px, 6vw, 56px);
-      font-weight: 700;
-      letter-spacing: -0.03em;
-      line-height: 1.1;
-      margin-bottom: 20px;
-      color: var(--color-fg);
-    }
-
-    .hero-sub {
-      font-size: clamp(16px, 2vw, 19px);
-      color: var(--color-muted);
-      max-width: 540px;
-      margin: 0 auto 36px;
-      line-height: 1.5;
-    }
-
-    .btn-primary {
-      display: inline-block;
-      background: var(--color-accent);
-      color: var(--color-accent-fg);
-      padding: 14px 28px;
-      border-radius: 999px;
-      font-size: 15px;
-      font-weight: 600;
-      transition: transform 0.15s ease, background 0.15s ease;
-    }
-
-    /* 라이트: #0A0A0A → 살짝 밝게 / 다크: #F5F6F7 → 살짝 어둡게. 양쪽 다 성립. */
-    .btn-primary:hover {
-      background: color-mix(in srgb, var(--color-accent) 92%, var(--color-accent-fg));
-      transform: translateY(-1px);
-    }
-
-    /* ── Section base ──────────────────────── */
-    /* 섹션마다 상·하 여백을 달리한다. 전 섹션 동일 패딩은 페이지를
-       "같은 블록의 반복"으로 읽히게 만든다 — 리듬으로 위계를 준다. */
-    .section {
-      padding: 80px 0;
-      border-top: 1px solid var(--color-border);
-    }
-    #products { padding: 88px 0 96px; }   /* 주력 섹션 — 가장 넓게 */
-    #about    { padding: 72px 0 64px; }   /* 산문 한 단락 — 조인다 */
-    #contact  { padding: 80px 0 104px; }  /* 페이지 끝 — 아래로 숨을 준다 */
-
-    .section-label {
-      font-size: 12px;
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 0.12em;
-      color: var(--color-muted);
-      margin-bottom: 16px;
-    }
-
-    .section-title {
-      font-size: clamp(28px, 4vw, 36px);
-      font-weight: 700;
-      letter-spacing: -0.02em;
-      margin-bottom: 12px;
-      color: var(--color-fg);
-    }
-
-    .section-lead {
-      font-size: 17px;
-      color: var(--color-muted);
-      max-width: 600px;
-      line-height: 1.6;
-      margin-bottom: 40px;
-    }
-
-    /* ── Products ──────────────────────────── */
-    .products-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 20px;
-    }
-
-    .product-card {
-      display: block;
-      background: var(--color-surface);
-      border: 1px solid var(--color-border);
-      border-radius: 16px;
-      padding: 32px;
-      transition: background 0.15s ease, border-color 0.15s ease;
-    }
-
-    .product-card:hover {
-      background: color-mix(in srgb, var(--color-surface) 88%, var(--color-fg));
-      border-color: color-mix(in srgb, var(--color-border) 70%, var(--color-fg));
-    }
-
-    .product-icon {
-      margin-bottom: 20px;
-      line-height: 1;
-    }
-
-    .product-icon img {
-      width: 52px;
-      height: 52px;
-      border-radius: 12px;
-      display: block;
-    }
-
-    .product-name {
-      font-size: 20px;
-      font-weight: 600;
-      margin-bottom: 8px;
-      color: var(--color-fg);
-    }
-
-    .product-desc {
-      font-size: 15px;
-      color: var(--color-muted);
-      margin-bottom: 16px;
-      line-height: 1.5;
-    }
-
-    .product-status {
-      display: inline-block;
-      font-size: 12px;
-      font-weight: 600;
-      color: var(--color-muted);
-      background: var(--color-bg);
-      border: 1px solid var(--color-border);
-      padding: 4px 10px;
-      border-radius: 999px;
-    }
-
-    /* 출시된 제품 — 반전 뱃지. 라이트에선 검정 바탕/흰 글씨, 다크에선 그 반대. */
-    .product-status.is-live {
-      color: var(--color-accent-fg);
-      background: var(--color-accent);
-      border-color: var(--color-accent);
-    }
-
-    /* ── Contact ───────────────────────────── */
-    .contact-email {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      font-size: clamp(20px, 3vw, 28px);
-      font-weight: 600;
-      letter-spacing: -0.02em;
-      color: var(--color-fg);
-      border-bottom: 2px solid var(--color-fg);
-      padding-bottom: 4px;
-      transition: opacity 0.15s ease;
-    }
-
-    /* 위 a 전역 해제보다 뒤에 와야 밑줄이 산다. hover 에서도 색을 고정한다. */
-    .contact-email:hover {
-      opacity: 0.6;
-      border-bottom-color: var(--color-fg);
-    }
-
-    /* ── Footer (사업자 정보 — Apple 심사 핵심) ──
-       라이트·다크 양쪽에서 항상 반전(어두운) 표면이다. 그래서 내부 색은
-       토큰이 아니라 고정값을 쓴다. 다크에서만 배경을 surface 로 띄운다. */
-    .footer {
-      background: #0A0A0A;
-      color: #B0B0B0;
-      padding: 56px 0 40px;
-      font-size: 14px;
-      line-height: 1.6;
-    }
-
-    @media (prefers-color-scheme: dark) {
-      /* 페이지 배경(#0C0C0D)과 거의 같아져 경계가 사라진다 → 한 단계 띄운다. */
-      .footer { background: var(--color-surface); }
-      .footer-bottom { border-top-color: var(--color-border); }
-    }
-
-    .footer-brand {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      color: #FFFFFF;
-      font-size: 18px;
-      font-weight: 600;
-      letter-spacing: -0.01em;
-      margin-bottom: 28px;
-    }
-
-    .footer-brand svg { width: 28px; height: 28px; }
-    .footer-brand-ko { color: #888888; font-weight: 400; }
-
-    .footer-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 40px;
-      margin-bottom: 40px;
-    }
-
-    .footer-block-label {
-      font-size: 11px;
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 0.12em;
-      color: #888888;
-      margin-bottom: 10px;
-    }
-
-    .footer-value { color: #E5E5E5; }
-    .footer-value a { color: #E5E5E5; text-decoration: underline; }
-
-    .footer-value-en {
-      color: #888888;
-      font-size: 13px;
-      margin-top: 4px;
-    }
-
-    .footer-bottom {
-      padding-top: 28px;
-      border-top: 1px solid #1F1F1F;
-      font-size: 13px;
-      color: #888888;
-    }
-
-    /* ── Responsive (640px 이하) ──────────── */
-    @media (max-width: 640px) {
-      .nav-inner { height: 52px; }
-      .nav-links { gap: 18px; font-size: 13px; }
-
-      .hero { padding: 64px 0 56px; }
-      .hero-logo { width: 48px; height: 48px; margin-bottom: 24px; }
-
-      .section { padding: 56px 0; }
-      #products { padding: 60px 0 64px; }
-      #about    { padding: 52px 0 48px; }
-      #contact  { padding: 56px 0 72px; }
-
-      .products-grid {
-        grid-template-columns: 1fr;
-        gap: 14px;
-      }
-
-      .product-card { padding: 24px; }
-
-      .footer { padding: 40px 0 32px; }
-      .footer-grid {
-        grid-template-columns: 1fr;
-        gap: 24px;
-      }
-    }
-  </style>
+  <link rel="stylesheet" href="/assets/css/studio-tokens.css">
+  <link rel="stylesheet" href="/assets/css/studio.css">
 </head>
 <body>
 
-  <nav class="nav">
-    <div class="container nav-inner">
-      <a href="#top" class="nav-brand">
-        <svg viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="6" fill="currentColor"/><path d="M9 9 L16 23 L23 9" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>
-        VyxWorks
-      </a>
-      <div class="nav-links">
-        <a href="#products">Products</a>
-        <a href="#about">About</a>
-        <a href="#contact">Contact</a>
-      </div>
+  <nav class="nav" aria-label="Primary">
+    <a href="#top" class="nav__brand">
+      <svg viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="6"/><path d="M9 9 L16 23 L23 9" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>
+      <span class="nav__brand-text">VyxWorks</span>
+    </a>
+    <div class="nav__links">
+      <a class="nav__link" href="#products">Products</a>
+      <a class="nav__link" href="#about">About</a>
+      <a class="nav__link" href="#contact">Contact</a>
     </div>
+    <a class="nav__cta" href="#contact">Get in touch</a>
   </nav>
 
   <main id="top">
+
     <section class="hero">
       <div class="container">
-        <svg class="hero-logo" viewBox="0 0 32 32"><rect width="32" height="32" rx="6" fill="#0A0A0A"/><path d="M9 9 L16 23 L23 9" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>
-        <h1>Productivity tools,<br>crafted with care.</h1>
-        <p class="hero-sub">We build apps that quietly improve daily life.</p>
-        <a href="#products" class="btn-primary">See our apps →</a>
-      </div>
-    </section>
+        <p class="hero__status">
+          <span class="dot" aria-hidden="true"></span>
+          <span>STUDIO · 3 APPS · 2 ON THE APP STORE</span>
+        </p>
 
-    <section id="products" class="section">
-      <div class="container">
-        <div class="section-label">Products</div>
-        <h2 class="section-title">Apps we’re building.</h2>
-        <p class="section-lead">Calm, dependable tools that respect your time and attention.</p>
-        <div class="products-grid">
-          <a class="product-card" href="/carpin/">
-            <div class="product-icon"><img src="/assets/img/carpin-appicon.jpg" alt="CarPin app icon"></div>
-            <div class="product-name">CarPin</div>
-            <p class="product-desc">Find and remember where you parked.</p>
-            <span class="product-status is-live">On the App Store</span>
-          </a>
-          <a class="product-card" href="/opaline/">
-            <div class="product-icon"><img src="/assets/img/opaline-appicon.jpg" alt="Opaline app icon"></div>
-            <div class="product-name">Opaline</div>
-            <p class="product-desc">A themed calendar you’ll actually want to open.</p>
-            <span class="product-status is-live">On the App Store</span>
-          </a>
-          <div class="product-card">
-            <div class="product-icon"><img src="/assets/img/achieve-appicon.jpg" alt="Achieve app icon"></div>
-            <div class="product-name">Achieve</div>
-            <p class="product-desc">Todos, events, and habits on one board.</p>
-            <span class="product-status">Coming Soon</span>
+        <div class="hero__layout">
+          <div>
+            <h1 class="hero__h1">Productivity tools, crafted with care.</h1>
+            <p class="hero__sub">
+              We build apps that quietly improve daily life — calm, dependable
+              tools that respect your time and attention.
+            </p>
+            <div class="hero__ctas">
+              <a class="btn btn--primary" href="#products">See our apps <span aria-hidden="true">→</span></a>
+              <a class="btn btn--ghost" href="#contact">Get in touch</a>
+            </div>
+            <p class="hero__fineprint">
+              <span>built for iPhone</span>
+              <span>independent studio</span>
+              <span>Yongin, Korea</span>
+            </p>
+          </div>
+
+          <aside class="shelf" aria-label="Current app shelf">
+            <div class="shelf__head">
+              <span class="eyebrow">Shelf</span>
+              <span class="shelf__ticks" aria-hidden="true"><i class="is-live"></i><i class="is-live"></i><i></i></span>
+            </div>
+            <div class="shelf__rows">
+              <div class="shelf__row">
+                <img src="/assets/img/carpin-appicon.jpg" alt="" width="36" height="36">
+                <span><span class="shelf__name">CarPin</span><br><span class="shelf__state">On the App Store</span></span>
+                <span class="shelf__pip is-live" aria-hidden="true"></span>
+              </div>
+              <div class="shelf__row">
+                <img src="/assets/img/opaline-appicon.jpg" alt="" width="36" height="36">
+                <span><span class="shelf__name">Opaline</span><br><span class="shelf__state">On the App Store</span></span>
+                <span class="shelf__pip is-live" aria-hidden="true"></span>
+              </div>
+              <div class="shelf__row">
+                <img src="/assets/img/achieve-appicon.jpg" alt="" width="36" height="36">
+                <span><span class="shelf__name">Achieve</span><br><span class="shelf__state">In build</span></span>
+                <span class="shelf__pip" aria-hidden="true"></span>
+              </div>
+            </div>
+            <p class="shelf__foot">3 apps · 1 studio · Yongin, KR</p>
+          </aside>
+        </div>
+
+        <div class="marquee" aria-hidden="true">
+          <div class="marquee__track">
+            <span>CarPin · find your car</span>
+            <span>Opaline · 40+ calendar themes</span>
+            <span>Achieve · in build</span>
+            <span>Made in Yongin, Korea</span>
+            <span>CarPin · find your car</span>
+            <span>Opaline · 40+ calendar themes</span>
+            <span>Achieve · in build</span>
+            <span>Made in Yongin, Korea</span>
           </div>
         </div>
       </div>
     </section>
 
-    <section id="about" class="section">
+    <section id="products" class="products">
       <div class="container">
-        <div class="section-label">About</div>
-        <h2 class="section-title">A small studio with a clear focus.</h2>
-        <p class="section-lead">VyxWorks is an independent software studio based in South Korea, building productivity apps that quietly improve daily life. Our work focuses on calm, dependable tools that respect your time and attention.</p>
+        <div class="section-head">
+          <div>
+            <p class="eyebrow">Products</p>
+            <h2 class="section-title">Apps we’re building.</h2>
+          </div>
+          <p class="section-lead">
+            Calm, dependable tools that respect your time and attention. Two are
+            on the App Store today; the third is still in the workshop.
+          </p>
+        </div>
+
+        <div class="products__grid">
+          <a class="product" href="/carpin/">
+            <div class="product__head">
+              <img src="/assets/img/carpin-appicon.jpg" alt="" width="44" height="44">
+              <h3 class="product__name">CarPin</h3>
+            </div>
+            <p class="product__desc">Find and remember where you parked.</p>
+            <span class="product__state is-live">On the App Store</span>
+          </a>
+
+          <a class="product" href="/opaline/">
+            <div class="product__head">
+              <img src="/assets/img/opaline-appicon.jpg" alt="" width="44" height="44">
+              <h3 class="product__name">Opaline</h3>
+            </div>
+            <p class="product__desc">A themed calendar you’ll actually want to open.</p>
+            <span class="product__state is-live">On the App Store</span>
+          </a>
+
+          <div class="product product--rail">
+            <img src="/assets/img/achieve-appicon.jpg" alt="" width="36" height="36">
+            <h3 class="product__name">Achieve</h3>
+            <p class="product__desc">Todos, events, and habits on one board.</p>
+            <span class="product__state">In build</span>
+          </div>
+        </div>
       </div>
     </section>
 
-    <section id="contact" class="section">
+    <section id="about" class="about">
       <div class="container">
-        <div class="section-label">Contact</div>
-        <h2 class="section-title">Get in touch.</h2>
-        <p class="section-lead">For partnerships, support, or just to say hello.</p>
-        <a href="mailto:support@vyxworks.com" class="contact-email">
-          support@vyxworks.com →
+        <h2 class="section-title">A small studio with a clear focus.</h2>
+        <div class="about__layout">
+          <p class="about__body">
+            VyxWorks is an independent software studio based in South Korea, building
+            productivity apps that quietly improve daily life. Our work focuses on calm,
+            dependable tools that respect your time and attention.
+          </p>
+          <dl class="about__meta">
+            <div>
+              <dt>Location</dt>
+              <dd>Yongin, Republic of Korea</dd>
+            </div>
+            <div>
+              <dt>Platform</dt>
+              <dd>iPhone</dd>
+            </div>
+            <div>
+              <dt>Shipped</dt>
+              <dd>CarPin · Opaline</dd>
+            </div>
+          </dl>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="contact">
+      <div class="container">
+        <div class="section-head">
+          <h2 class="section-title">Get in touch.</h2>
+          <p class="section-lead">For partnerships, support, or just to say hello.</p>
+        </div>
+        <a class="contact__link" href="mailto:support@vyxworks.com">
+          support@vyxworks.com <span aria-hidden="true">→</span>
         </a>
       </div>
     </section>
+
   </main>
 
   <footer class="footer">
     <div class="container">
-      <div class="footer-brand">
-        <svg viewBox="0 0 32 32"><rect width="32" height="32" rx="6" fill="#FFFFFF"/><path d="M9 9 L16 23 L23 9" stroke="#0A0A0A" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>
-        VyxWorks <span class="footer-brand-ko">(빅스웍스)</span>
-      </div>
+      <p class="footer__statement">
+        An independent studio making <em>quiet</em> tools for iPhone.
+      </p>
 
-      <div class="footer-grid">
+      <dl class="footer__legal-grid">
         <div>
-          <div class="footer-block-label">Business Registration No.</div>
-          <div class="footer-value">422-57-01052</div>
+          <dt>Business Registration No.</dt>
+          <dd>422-57-01052</dd>
         </div>
         <div>
-          <div class="footer-block-label">Email</div>
-          <div class="footer-value"><a href="mailto:support@vyxworks.com">support@vyxworks.com</a></div>
+          <dt>Email</dt>
+          <dd><a href="mailto:support@vyxworks.com">support@vyxworks.com</a></dd>
         </div>
-        <div style="grid-column: 1 / -1;">
-          <div class="footer-block-label">Business Address</div>
-          <div class="footer-value">14 Gwanggyojungang-ro 296beon-gil, Suji-gu, Yongin-si, Gyeonggi-do, Republic of Korea</div>
+        <div>
+          <dt>Business Address</dt>
+          <dd>14 Gwanggyojungang-ro 296beon-gil, Suji-gu, Yongin-si, Gyeonggi-do, Republic of Korea</dd>
         </div>
-      </div>
+      </dl>
 
-      <div class="footer-bottom">
-        © 2026 VyxWorks. All rights reserved.
+      <div class="footer__bottom">
+        <span class="wordmark">VyxWorks (빅스웍스)</span>
+        <span>© 2026 VyxWorks. All rights reserved.</span>
       </div>
     </div>
   </footer>

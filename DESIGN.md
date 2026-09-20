@@ -4,11 +4,14 @@ name: VyxWorks-Studio
 product: vyxworks.com (스튜디오 사이트 + 제품 랜딩 + 법적 고지)
 platform: 정적 HTML + 순수 CSS (빌드 도구·프레임워크 없음), GitHub Pages
 description: >
-  절제된 뉴트럴 스튜디오 사이트. 흰 캔버스(#FFFFFF) 위 near-black 잉크(#0A0A0A),
-  시스템 폰트(-apple-system → SF Pro) 한 벌, 장식 없는 1px 헤어라인이 전부다.
-  색은 스튜디오가 아니라 **제품이** 가진다 — 셸(내비·푸터·타이포·간격)은 전 제품
-  공용 뉴트럴이고, 액센트만 제품별로 갈린다(CarPin 그린 · Opaline 모노크롬).
-  그림자를 쓰지 않고 테두리와 여백으로 위계를 만든다.
+  이 레포에는 **두 개의 디자인 시스템**이 있다.
+  (A) 셸 시스템 — 제품 랜딩·법적 고지 18개 페이지. 절제된 뉴트럴, 흰 캔버스(#FFFFFF)
+  위 near-black 잉크, 시스템 폰트 한 벌, 장식 없는 1px 헤어라인. 색은 스튜디오가
+  아니라 제품이 가지고, 그림자 없이 테두리와 여백으로 위계를 만든다.
+  (B) 스튜디오 홈 시스템 — `/index.html` 한 장. 2026-09-20 에 Hallmark studied-DNA
+  로 갈라져 나왔다. Geist 웹폰트, 쿨 틴트 페이퍼, 인디고 액센트, 그라디언트 배경,
+  떠 있는 내비. 아래 `studio-home` 블록이 정본이다.
+  **두 시스템은 의도적으로 다르다.** 섞지 않는다.
 
 source-of-truth:
   tokens: assets/css/base.css   # :root 블록이 정답이다. 이 문서는 그 해설·계약서.
@@ -27,7 +30,8 @@ colors:
   accent-carpin:   "#04C98A"   # 그린. hover 시 #03B57B
   accent-carpin-fg: "#FFFFFF"
   accent-opaline:  { light: "#0A0A0A", dark: "#F5F6F7" }   # 모노크롬 = 앱 아이콘 톤
-  accent-studio:   { light: "#0A0A0A", dark: "#F5F6F7" }   # 홈은 Opaline 과 동일
+  # accent-studio 는 (A) 에서 제거됐다 — 홈은 (B) 시스템으로 이관.
+  # 홈 액센트는 studio-home.colors.accent (인디고) 를 본다.
 
 typography:
   font-sans: >
@@ -59,6 +63,46 @@ radius:
   lg:   "14px"
   xl:   "16px"
   xs:   "4px"     # 코드/뱃지
+
+# ─────────────────────────────────────────────────────────────
+# (B) 스튜디오 홈 시스템 — /index.html 전용. 위 (A) 와 공유하는 토큰이 없다.
+#     정본: assets/css/studio-tokens.css. 이 블록은 그 해설이다.
+# ─────────────────────────────────────────────────────────────
+studio-home:
+  applies-to: /index.html
+  source: "Hallmark studied-DNA · https://www.usehallmark.com/examples/tally/"
+  stamp: "macrostructure: Marquee Hero · genre: modern-minimal · nav: N5 Floating pill · footer: Ft5 Statement"
+  loads: [assets/css/studio-tokens.css, assets/css/studio.css]
+  does-not-load: assets/css/base.css   # 의도적. 셸 시스템과 캐스케이드가 섞이지 않는다.
+
+  colors:   # OKLCH. 라이트 / 다크 쌍. 22개 대비쌍 전부 WCAG AA 통과 검증됨.
+    paper:  { light: ["98.4% .005 258", "96.2% .010 258", "93.0% .015 258", "89.0% .020 258"],
+              dark:  ["16.0% .018 258", "20.5% .020 258", "25.5% .022 258", "31.0% .024 258"] }
+    ink:    { light: ["18.0% .030 258", "35.0% .025 258", "47.0% .020 258", "64.0% .016 258"],
+              dark:  ["96.0% .008 258", "85.5% .012 258", "72.0% .016 258", "56.0% .016 258"] }
+    accent: { light: "54.0% .220 268", dark: "72.0% .165 268" }   # 인디고
+    companion: { light: "62.0% .150 145", dark: "76.0% .160 145" } # 출시 상태 표시 전용. 장식 금지.
+    focus:  { light: "46.0% .220 268", dark: "80.0% .150 268" }
+
+  typography:
+    font-display: '"Geist", ui-sans-serif, system-ui, -apple-system, sans-serif'
+    font-body:    '"Geist", ui-sans-serif, system-ui, -apple-system, sans-serif'
+    font-mono:    '"Geist Mono", ui-monospace, "SF Mono", Menlo, Consolas, monospace'
+    loaded-from:  "Google Fonts (Geist 400;500;600 + Geist Mono 400;500)"
+    note: >
+      Instrument Serif 는 원본에 있지만 **일부러 뺐다** — 원본은 h1 안에서
+      이탤릭 강조에 쓰는데, 그게 Hallmark gate 38a(이탤릭 제목 금지) 위반이다.
+      강조는 액센트 색으로 준다 (푸터 statement 의 `em` 이 그 예시).
+
+  layout:
+    container-max: "1120px"    # 셸 시스템의 720/880/960 과 무관한 별도 값
+    tap-min: "44px"
+    breakpoints: ["980px (히어로 2열 해제)", "760px (섹션헤드·About 2열 해제)", "640px (거터)", "430px (내비 워드마크·CTA 제거)"]
+
+  section-rhythm:   # 균일 패딩 금지 규칙은 여기서도 유효하다
+    products: "80px / 48px"
+    about:    "48px / 80px"
+    contact:  "80px / 128px"
 ---
 
 ## Overview
@@ -68,13 +112,18 @@ VyxWorks 사이트는 **제품 카탈로그**지 브랜드 쇼케이스가 아�
 
 세 종류의 표면이 있고 규칙이 다르다:
 
-| 표면 | 경로 | 컨테이너 | 액센트 | 다크 |
-|---|---|---|---|---|
-| 스튜디오 홈 | `/index.html` | 880px | 모노크롬 | ❌ (미구현, Known Gaps 참조) |
-| 제품 랜딩 | `/opaline/`, `/carpin/` | 720px | 제품별 | ✅ |
-| 법적 고지 | `/*/privacy/`, `/*/terms/` | 720px | 제품별 | ✅ |
+| 표면 | 경로 | 시스템 | 컨테이너 | 폰트 | 액센트 | 다크 |
+|---|---|---|---|---|---|---|
+| 스튜디오 홈 | `/index.html` | **(B) 홈** | 1120px | Geist | 인디고 | ✅ |
+| 제품 랜딩 | `/opaline/`, `/carpin/` | (A) 셸 | 720px | 시스템 | 제품별 | ✅ |
+| 법적 고지 | `/*/privacy/`, `/*/terms/` | (A) 셸 | 720px | 시스템 | 제품별 | ✅ |
 
-공용 셸은 `_partials/header.html` · `_partials/footer.html` + `assets/css/base.css`.
+(A) 공용 셸은 `_partials/header.html` · `_partials/footer.html` + `assets/css/base.css`.
+(B) 홈은 `assets/css/studio-tokens.css` + `assets/css/studio.css` 만 로드한다.
+
+> **홈은 이 문서의 (A) 규칙 적용 대상이 아니다.** 아래 Colors·Typography·
+> Elevation·Components 절은 전부 (A) 셸 시스템 이야기다. 홈을 고칠 때는
+> 프론트매터의 `studio-home` 블록과 `studio-tokens.css` 를 본다.
 
 ---
 
@@ -103,8 +152,9 @@ VyxWorks 사이트는 **제품 카탈로그**지 브랜드 쇼케이스가 아�
 
 ## Typography
 
-시스템 폰트 한 벌만 쓴다. 웹폰트를 로드하지 않는다 — GitHub Pages 정적 사이트에서
-FOUT 와 요청 한 번을 아끼는 게 서체 개성보다 가치 있다. CJK 폴백(`Noto Sans JP/SC`)이
+**(A) 셸 시스템 한정.** 제품 랜딩·법적 고지는 시스템 폰트 한 벌만 쓰고 웹폰트를
+로드하지 않는다 — GitHub Pages 정적 사이트에서 FOUT 와 요청 한 번을 아끼는 게
+서체 개성보다 가치 있다. (B) 홈은 이 규칙의 **예외**로 Geist 를 로드한다. CJK 폴백(`Noto Sans JP/SC`)이
 스택에 포함돼 있으니 다국어 법적 고지에서 임의로 빼지 않는다.
 
 ### 위계
@@ -137,7 +187,9 @@ FOUT 와 요청 한 번을 아끼는 게 서체 개성보다 가치 있다. CJK 
 
 ## Elevation & Depth
 
-**그림자를 쓰지 않는다.** 이 사이트에 `box-shadow` 는 존재하지 않으며 그게 의도다.
+**(A) 셸 시스템은 그림자를 쓰지 않는다.** 제품 랜딩·법적 고지에 `box-shadow` 는
+존재하지 않으며 그게 의도다. (B) 홈은 떠 있는 내비와 셸프 카드에 그림자를 쓴다 —
+`--shadow-nav` / `--shadow-card` 토큰으로만, 라이트·다크 각각 다른 값으로.
 
 깊이는 세 가지로만 표현한다:
 
@@ -224,9 +276,12 @@ hover 시 테두리를 액센트 쪽으로 45% 섞고(`color-mix`) 2px 부양.
   라이트·다크를 **둘 다** 렌더해서 확인하기 전에는 끝난 게 아니다.
 
 ### Don't
-- ❌ `box-shadow` 를 도입하지 않는다.
-- ❌ 웹폰트를 로드하지 않는다.
-- ❌ 그라디언트를 장식으로 쓰지 않는다.
+- ❌ `box-shadow` 를 도입하지 않는다. **((A) 한정 — 개정 2026-09-20)**
+- ❌ 웹폰트를 로드하지 않는다. **((A) 한정 — 개정 2026-09-20)**
+- ❌ 그라디언트를 장식으로 쓰지 않는다. **((A) 한정 — 개정 2026-09-20)**
+- ❌ 셸에 유채색을 쓰지 않는다. **((A) 한정 — 개정 2026-09-20)**
+- ❌ **(A) 와 (B) 의 토큰을 섞지 않는다.** 홈에서 `--color-fg` 를 찾거나
+  제품 페이지에서 `--color-ink-0` 을 찾는 코드는 잘못 쓴 것이다.
 - ❌ `base.css` 에 제품 고유의 값을 넣지 않는다 (지금 그린이 들어가 있는 게 실수다).
 - ❌ 애플 팔레트(`#0066cc` Action Blue, `#f5f5f7` parchment)나 SF Pro 헤드라인 조합을
   그대로 쓰지 않는다. **App Store 개발자 사이트가 애플 공식 페이지처럼 보이는 건
@@ -258,11 +313,14 @@ hover 시 테두리를 액센트 쪽으로 45% 섞고(`color-mix`) 2px 부양.
 
 이 문서가 기술한 시스템과 현재 코드가 어긋나는 지점. 고칠 때 여기서 지운다.
 
-1. ~~`index.html` 이 `base.css` 를 로드하지 않는다~~ → **해결.**
-   홈이 `base.css` 를 로드하고 색·간격을 전부 `var(--color-*)` 로 받는다.
+1. **`index.html` 이 `base.css` 를 로드하지 않는다 — 의도된 상태로 되돌아갔다
+   (2026-09-20).** 한때 해결 처리했으나, 홈이 (B) 시스템으로 갈라지면서 셸
+   토큰을 전부 덮어쓰는 구조가 됐다. 로드를 유지하면 죽은 CSS 와 캐스케이드
+   함정만 남으므로 끊는 쪽이 맞다. 홈은 `studio-tokens.css` 에서 토큰을 받는다.
 
-2. ~~홈에 다크 모드가 없다~~ → **해결.** 홈도 `prefers-color-scheme` 대응.
-   반전 푸터는 다크에서 `--color-surface` 로 한 단계 띄워 경계를 유지한다.
+2. ~~홈에 다크 모드가 없다~~ → **해결.** (B) 재구축 후에도 유지된다.
+   원본 Tally DNA 는 라이트 전용이라 다크 팔레트는 258 색상각을 유지한 채
+   새로 만들었다. 22개 대비쌍 WCAG AA 검증 완료.
 
 3. **다크 팔레트가 두 벌이다.** `base.css` 는 네이비 틴트(`#0B1426`),
    `index.html`·`opaline.css` 가 뉴트럴(`#0C0C0D`)로 각각 덮어쓴다.
@@ -302,13 +360,30 @@ hover 시 테두리를 액센트 쪽으로 45% 섞고(`color-mix`) 2px 부양.
     서로 다른 상·하 여백 (데스크톱·모바일 모두).
 
 15. ~~페이지에 Hallmark 스탬프가 없다~~ → **해결.**
-    랜딩 3개는 각자의 macrostructure(Portfolio Grid / Bento Grid / Marquee Hero),
-    법적 고지 19개는 `base.css` 스탬프를 상속.
+    홈은 `studio-tokens.css` 스탬프(Marquee Hero · studied-DNA),
+    opaline/carpin 은 각자의 macrostructure(Bento Grid / Marquee Hero),
+    법적 고지는 `base.css` 스탬프를 상속.
+    프로젝트 메모리는 `.hallmark/log.json`.
 
-16. **내비가 AI nav 형태에 근접한다** (미해결, 판단 필요).
-    워드마크 좌측 + 인라인 링크 우측 + sticky + 1px 헤어라인.
-    링크가 3개고 우측 CTA 버튼이 없어 완전 일치는 아니다.
-    바꾸려면 19개 페이지의 공용 셸을 손대야 하므로 별도 결정 사항.
+16. **내비가 AI nav 형태에 근접한다** (홈은 해결, 나머지 18개는 미해결).
+    홈은 N5 Floating pill 로 교체됐다 — 화면에서 떠 있고, 워드마크·링크·CTA 가
+    한 알약 안에 들어간다. 430px 이하에서는 워드마크와 CTA 를 버리고 목적지
+    3개만 남긴다 (원본 Tally 는 여기서 링크를 통째로 숨겨 목적지에 갈 방법이
+    사라지는데, 그건 따라하지 않았다).
+    제품 랜딩·법적 고지 18개는 여전히 `_partials/header.html` 의 sticky 바다.
+    바꾸려면 공용 셸을 손대야 하므로 별도 결정 사항.
+
+17. ~~파비콘이 깨져 있다~~ → **해결 (2026-09-20).**
+    `index.html` 이 존재하지 않는 `/assets/img/vyxworks-logo.svg` 를 가리켰고,
+    루트 `favicon.svg` 는 최초 커밋(`733479b`)부터 0바이트로 트래킹되고 있었다.
+    중복 파일을 만들지 않으려고 이미 트래킹 중인 루트 `favicon.svg` 를 실제
+    마크로 채우고 홈이 거길 보게 했다. 파비콘은 문서 밖에서 그려져
+    `currentColor` 가 없으므로 색을 명시하고, `opaline-logo.svg` 와 같은
+    SVG 내부 `prefers-color-scheme` 로 스킴을 뒤집는다. 획은 3 → 3.5 로 굵혔다
+    (16px 렌더에서 3/32 는 1.5px 라 뭉갠다). 라이트·다크 16/32/64px 렌더 확인 완료.
+    제품 페이지 18개는 각자의 제품 로고를 쓰며 전부 정상 — 의도된 브랜딩이라 건드리지 않았다.
+    남은 것: `*/privacy/index.html` · `*/terms/index.html` 4개 언어 리다이렉트 스텁에는
+    아이콘 링크가 없다. `meta refresh` 로 즉시 튕기는 페이지라 실익이 없어 그대로 뒀다.
 
 8. **홈의 임의 회색이 토큰으로 정규화됐다** (기록용, 조치 불필요).
    토큰 도입 과정에서 헤어라인 `#EFEFEF`→`#E5E7EB`(`--color-border`),
@@ -320,14 +395,20 @@ hover 시 테두리를 액센트 쪽으로 45% 섞고(`color-mix`) 2px 부양.
 
 ## Iteration Guide
 
+**홈(`/index.html`)을 고칠 때:** 프론트매터 `studio-home` 블록 →
+`assets/css/studio-tokens.css` → `assets/css/studio.css` 순으로 본다.
+아래 절차는 (A) 셸 시스템 전용이니 홈에 적용하지 않는다.
+
 새 제품 랜딩을 만들 때:
 
-1. `carpin/index.html` 을 복사해서 시작한다 (`index.html` 말고 — 그건 토큰을 안 쓴다).
+1. `carpin/index.html` 을 복사해서 시작한다 (`index.html` 말고 — 그건 (B) 시스템이다).
 2. `_partials/header.html`·`footer.html` 포함, `base.css` 로드 유지.
 3. 제품 액센트가 그린이 아니면 `assets/css/<product>.css` 를 만들어
    `--color-accent` / `--color-accent-fg` 만 재정의하고 base.css **뒤에** 로드한다.
 4. 라이트·다크 둘 다 확인한다.
 5. 이 문서의 Do's and Don'ts 로 셀프 점검한 뒤 커밋한다.
 
-에이전트에게: 이 사이트의 UI 를 만들거나 고칠 때 이 문서를 먼저 읽고,
-토큰 값이 필요하면 `assets/css/base.css` 를 확인한다 (문서보다 CSS 가 정답).
+에이전트에게: 이 사이트의 UI 를 만들거나 고칠 때 이 문서를 먼저 읽는다.
+**어느 시스템인지부터 정한다** — `/index.html` 이면 (B), 그 외 전부 (A) 다.
+토큰 값은 (A) 는 `assets/css/base.css`, (B) 는 `assets/css/studio-tokens.css`
+가 정답이다 (문서보다 CSS 가 정답).

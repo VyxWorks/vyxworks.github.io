@@ -1,0 +1,36 @@
+[
+  {
+    "date": "2026-09-20",
+    "macrostructure": "Marquee Hero",
+    "genre": "modern-minimal",
+    "theme": "studied-DNA",
+    "theme_source": "https://www.usehallmark.com/examples/tally/",
+    "theme_axes": "light / geometric-sans / cool-indigo",
+    "nav": "N5 Floating pill",
+    "footer": "Ft5 Statement",
+    "enrichment": "Tier A pure-CSS app shelf card",
+    "scope": "index.html only",
+    "brief": "VyxWorks studio home rebuilt on the Tally SaaS DNA; DESIGN.md amended to allow webfonts, a chromatic accent, gradients and shadow on this one surface"
+  },
+  {
+    "date": "2026-09-10",
+    "macrostructure": "Marquee Hero",
+    "theme": "VyxWorks-Studio",
+    "enrichment": "none",
+    "brief": "carpin/ product landing (retro-stamped)"
+  },
+  {
+    "date": "2026-09-10",
+    "macrostructure": "Bento Grid",
+    "theme": "VyxWorks-Studio",
+    "enrichment": "none",
+    "brief": "opaline/ product landing (retro-stamped)"
+  },
+  {
+    "date": "2026-09-10",
+    "macrostructure": "Portfolio Grid",
+    "theme": "VyxWorks-Studio",
+    "enrichment": "none",
+    "brief": "index.html studio home, pre-Tally (retro-stamped; superseded by the entry above)"
+  }
+]
