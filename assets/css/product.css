@@ -1,0 +1,244 @@
+/* Hallmark · genre: modern-minimal · product landings (CarPin · Opaline)
+ * theme: studied-DNA (source: usehallmark.com/examples/tally/)
+ * nav: N5 Floating pill · footer: Ft5 Statement
+ * Requires studio-tokens.css + shell.css. The page itself overrides
+ * --color-accent only; nothing structural is per-product.
+ *
+ * Two feature rhythms live here on purpose. CarPin has three items and takes
+ * the hairline list; Opaline has six and takes the asymmetric 12-column span.
+ * A page picks one. Repeating a rhythm across products is the thing to avoid.
+ */
+
+/* A product landing is one narrow column of copy. In the home's 1120px frame
+   that column strands itself against a wide empty right, so the whole page
+   gets a tighter measure. Shell still frames content: 920 > 620 feature list. */
+:root { --container-max: 920px; }
+
+/* ───────── product hero ───────── */
+/* Single column, left-aligned — the home hero is two-column, and two pages
+   sharing a hero shape is how a site starts looking generated. */
+.phero {
+  padding: 132px 0 var(--space-2xl);
+}
+
+.phero__icon {
+  width: 64px;
+  height: 64px;
+  border-radius: 16px;
+  border: var(--rule-hair);
+  margin-bottom: var(--space-lg);
+}
+
+.phero__h1 {
+  margin: 0;
+  max-width: 16ch;
+  font-family: var(--font-display);
+  font-size: var(--text-product);
+  font-weight: 600;
+  line-height: 1.06;
+  letter-spacing: -0.035em;
+  color: var(--color-ink-0);
+  overflow-wrap: anywhere;
+  min-width: 0;
+}
+
+/* Two-tone headline — the second clause steps back to secondary ink.
+   Carried over from the old page, which did the same with a muted span. */
+.phero__h1-soft { color: var(--color-ink-2); }
+
+.phero__sub {
+  margin: var(--space-lg) 0 0;
+  max-width: 52ch;
+  font-size: var(--text-md);
+  line-height: 1.6;
+  color: var(--color-ink-1);
+}
+
+.phero__actions {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: var(--space-md);
+  margin-top: var(--space-xl);
+}
+
+/* Official Apple "Download on the App Store" badge. The artwork is Apple's and
+   must not be restyled — the wrapper only owns size and clear space. */
+.store-badge {
+  display: inline-block;
+  border-bottom: none;
+  transition: opacity var(--dur-fast) var(--ease-out);
+}
+
+.store-badge img { height: 48px; width: auto; }
+.store-badge:hover { opacity: 0.85; }
+.store-badge:active { opacity: 0.7; }
+
+.phero__fineprint {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-md);
+  margin: var(--space-lg) 0 0;
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  letter-spacing: 0.04em;
+  color: var(--color-ink-2);
+}
+
+.phero__fineprint span { display: inline-flex; align-items: center; gap: var(--space-md); }
+.phero__fineprint span + span::before { content: "·"; color: var(--color-ink-3); }
+
+/* A live product gets one brand-coloured mark. The brand green is too light to
+   carry text (2.06:1 on paper), so it lives here as a dot and nowhere else. */
+.phero__status {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 4px 16px 4px 12px;
+  border: var(--rule-soft);
+  background: var(--color-paper-0);
+  border-radius: var(--radius-pill);
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  letter-spacing: 0.08em;
+  color: var(--color-ink-1);
+  margin-bottom: var(--space-lg);
+}
+
+.phero__status .dot {
+  width: 8px;
+  height: 8px;
+  border-radius: var(--radius-pill);
+  background: var(--color-brand, var(--color-accent));
+}
+
+/* ───────── features · hairline list (CarPin) ───────── */
+/* Three items. Cards would be three near-identical boxes, so the shells come
+   off and the rhythm is carried by rules and space instead. */
+.feature-list {
+  max-width: 620px;
+  padding: var(--space-2xl) 0 var(--space-xl);
+}
+
+.feature-row {
+  display: grid;
+  grid-template-columns: 20px minmax(0, 1fr);
+  column-gap: var(--space-md);
+  row-gap: var(--space-2xs);
+  padding: var(--space-lg) 0;
+  border-bottom: var(--rule-hair);
+}
+
+.feature-row:first-child { border-top: var(--rule-hair); }
+
+.feature-row__icon {
+  width: 20px;
+  height: 20px;
+  color: var(--color-ink-2);
+  margin-top: 4px;
+}
+
+.feature-row__icon svg { width: 100%; height: 100%; }
+
+.feature-row h3 {
+  margin: 0;
+  font-size: var(--text-base);
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  color: var(--color-ink-0);
+}
+
+.feature-row p {
+  grid-column: 2;
+  margin: 0;
+  font-size: var(--text-sm);
+  line-height: 1.6;
+  color: var(--color-ink-1);
+}
+
+/* ───────── features · asymmetric span grid (Opaline) ───────── */
+/* Six items on twelve columns: 7-5 / 5-7 / 6-6. An even three-up would read as
+   the generated default, and it would also repeat CarPin's rhythm. */
+.feature-grid {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  gap: var(--space-md);
+  padding: var(--space-2xl) 0 var(--space-xl);
+}
+
+.feature-card {
+  background: var(--color-paper-1);
+  border: var(--rule-soft);
+  border-radius: var(--radius-lg);
+  padding: var(--space-xl);
+  transition: border-color var(--dur-mid) var(--ease-out), background var(--dur-mid) var(--ease-out);
+}
+
+.feature-card:nth-child(1) { grid-column: span 7; }
+.feature-card:nth-child(2) { grid-column: span 5; }
+.feature-card:nth-child(3) { grid-column: span 5; }
+.feature-card:nth-child(4) { grid-column: span 7; }
+.feature-card:nth-child(5) { grid-column: span 6; }
+.feature-card:nth-child(6) { grid-column: span 6; }
+
+/* Icon beside the title, never stacked above it — the rounded-tile-over-heading
+   card is the most recognisable generated-UI fingerprint there is. */
+.feature-card__head {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+}
+
+.feature-card__icon {
+  width: 20px;
+  height: 20px;
+  color: var(--color-ink-2);
+  flex: none;
+}
+
+.feature-card__icon svg { width: 100%; height: 100%; }
+
+.feature-card h3 {
+  margin: 0;
+  font-size: var(--text-md);
+  font-weight: 600;
+  letter-spacing: -0.015em;
+  color: var(--color-ink-0);
+  overflow-wrap: anywhere;
+  min-width: 0;
+}
+
+.feature-card p {
+  margin: var(--space-sm) 0 0;
+  font-size: var(--text-sm);
+  line-height: 1.6;
+  color: var(--color-ink-1);
+}
+
+/* ───────── pricing note (Opaline) ───────── */
+.pricing-note {
+  margin: 0;
+  padding: var(--space-lg) var(--space-xl);
+  border: 1px dashed color-mix(in oklch, var(--color-ink-0) 16%, transparent);
+  border-radius: var(--radius-lg);
+  font-size: var(--text-sm);
+  line-height: 1.7;
+  color: var(--color-ink-1);
+}
+
+.pricing-note strong { color: var(--color-ink-0); font-weight: 600; }
+
+/* ───────── responsive ───────── */
+@media (max-width: 880px) {
+  .feature-card:nth-child(n) { grid-column: span 6; }
+  .feature-card:nth-child(1) { grid-column: span 12; }
+}
+
+@media (max-width: 640px) {
+  .phero { padding-top: 112px; }
+  .phero__icon { width: 56px; height: 56px; }
+  .feature-card:nth-child(n) { grid-column: span 12; }
+  .feature-list { padding: var(--space-xl) 0 var(--space-lg); }
+  .feature-grid { padding: var(--space-xl) 0 var(--space-lg); }
+  .pricing-note { padding: var(--space-md) var(--space-lg); }
+}

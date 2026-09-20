@@ -1,6 +1,32 @@
 [
   {
     "date": "2026-09-20",
+    "macrostructure": "Product Hero + asymmetric span grid",
+    "genre": "modern-minimal",
+    "theme": "studied-DNA",
+    "theme_source": "https://www.usehallmark.com/examples/tally/",
+    "theme_axes": "light / geometric-sans / monochrome-ink",
+    "nav": "N5 Floating pill",
+    "footer": "Ft5 Statement",
+    "enrichment": "none (typography + real app icon)",
+    "scope": "opaline/index.html",
+    "brief": "Opaline landing moved onto the studio system; six features on a 12-column 7-5/5-7/6-6 span, monochrome accent with mandatory underlines"
+  },
+  {
+    "date": "2026-09-20",
+    "macrostructure": "Product Hero + hairline feature list",
+    "genre": "modern-minimal",
+    "theme": "studied-DNA",
+    "theme_source": "https://www.usehallmark.com/examples/tally/",
+    "theme_axes": "light / geometric-sans / green",
+    "nav": "N5 Floating pill",
+    "footer": "Ft5 Statement",
+    "enrichment": "none (typography + real app icon)",
+    "scope": "carpin/index.html",
+    "brief": "CarPin landing moved onto the studio system; three features as a hairline list; brand green split into --color-brand (dot) and a darkened --color-accent that clears AA"
+  },
+  {
+    "date": "2026-09-20",
     "macrostructure": "Marquee Hero",
     "genre": "modern-minimal",
     "theme": "studied-DNA",
@@ -9,28 +35,21 @@
     "nav": "N5 Floating pill",
     "footer": "Ft5 Statement",
     "enrichment": "Tier A pure-CSS app shelf card",
-    "scope": "index.html only",
-    "brief": "VyxWorks studio home rebuilt on the Tally SaaS DNA; DESIGN.md amended to allow webfonts, a chromatic accent, gradients and shadow on this one surface"
+    "scope": "index.html",
+    "brief": "VyxWorks studio home rebuilt on the Tally SaaS DNA; AppVoice added as the fourth app; stylesheet split into shell.css + home.css so the product landings share the nav and footer"
   },
   {
     "date": "2026-09-10",
     "macrostructure": "Marquee Hero",
     "theme": "VyxWorks-Studio",
     "enrichment": "none",
-    "brief": "carpin/ product landing (retro-stamped)"
+    "brief": "carpin/ product landing on the shell system (superseded)"
   },
   {
     "date": "2026-09-10",
     "macrostructure": "Bento Grid",
     "theme": "VyxWorks-Studio",
     "enrichment": "none",
-    "brief": "opaline/ product landing (retro-stamped)"
-  },
-  {
-    "date": "2026-09-10",
-    "macrostructure": "Portfolio Grid",
-    "theme": "VyxWorks-Studio",
-    "enrichment": "none",
-    "brief": "index.html studio home, pre-Tally (retro-stamped; superseded by the entry above)"
+    "brief": "opaline/ product landing on the shell system (superseded)"
   }
 ]
